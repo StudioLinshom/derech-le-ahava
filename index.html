@@ -437,31 +437,52 @@
     .instructor-wrap {
       max-width: 720px; margin-inline: auto;
       display: grid; gap: 36px; align-items: start;
-      grid-template-columns: 160px 1fr;
+      grid-template-columns: 180px 1fr;
     }
     @media (max-width: 640px) { .instructor-wrap { grid-template-columns: 1fr; justify-items: center; text-align: center; } }
     .instructor-avatar {
-      width: 160px; height: 160px; border-radius: 50%;
+      width: 180px; height: 180px; border-radius: 50%;
       background: linear-gradient(135deg, var(--accent-soft) 0%, var(--lavender-soft) 100%);
       display: flex; align-items: center; justify-content: center;
       box-shadow: 0 10px 30px rgba(184, 101, 76, 0.18);
       flex-shrink: 0;
+      overflow: hidden;
     }
-    .instructor-avatar svg { width: 70px; height: 70px; color: rgba(255, 255, 255, 0.85); }
+    .instructor-avatar img {
+      width: 100%; height: 100%;
+      border-radius: 50%;
+      object-fit: cover;
+      display: block;
+    }
     .instructor-name {
       font-family: 'Frank Ruhl Libre', serif; font-weight: 700;
-      font-size: 30px; margin-bottom: 4px; color: var(--ink);
+      font-size: 30px; margin-bottom: 18px; color: var(--ink);
     }
-    .instructor-role { color: var(--accent-deep); font-size: 14px; letter-spacing: 0.15em; text-transform: uppercase; margin-bottom: 20px; font-weight: 500; }
     .instructor-bio p { color: var(--ink-soft); font-size: 16px; line-height: 1.85; margin-bottom: 14px; }
     .instructor-bio p strong { color: var(--ink); font-weight: 500; }
-    .skills-row { display: flex; flex-wrap: wrap; gap: 8px; margin: 18px 0 14px; }
-    @media (max-width: 640px) { .skills-row { justify-content: center; } }
-    .skill-pill {
-      display: inline-block; padding: 6px 14px;
-      background: rgba(255, 255, 255, 0.7);
-      border: 1px solid var(--line); border-radius: 100px;
-      font-size: 13px; color: var(--ink-soft); font-weight: 500;
+    .skills-list {
+      list-style: none; padding: 0;
+      margin: 14px 0 18px;
+      display: grid; gap: 6px;
+    }
+    .skills-list li {
+      position: relative;
+      padding-inline-start: 20px;
+      color: var(--ink-soft);
+      font-size: 16px; line-height: 1.7;
+    }
+    .skills-list li::before {
+      content: '•';
+      color: var(--accent);
+      position: absolute;
+      inset-inline-start: 0;
+      font-weight: 700;
+      font-size: 18px;
+      top: -1px;
+    }
+    .skills-list li strong { color: var(--ink); font-weight: 600; }
+    @media (max-width: 640px) {
+      .skills-list { text-align: start; max-width: 320px; margin-inline: auto; }
     }
 
     /* ============ CLOSING ============ */
@@ -598,8 +619,7 @@
   <!-- INTRO -->
   <section class="intro">
     <div class="container reveal">
-      <div class="section-eyebrow">למה הסדנה הזו</div>
-      <h2 class="section-title">לפעמים הקושי הוא לא במציאת בן/בת הזוג —<br />אלא במה שאנחנו מביאים איתנו אל הקשר.</h2>
+      <h2 class="section-title">לפעמים הקושי הוא לא במציאת בן/בת הזוג —<br />אלא במה שאנחנו מביאים איתנו אל הקשר</h2>
       <p class="intro-text">
         רבים ורבות רוצים/ות זוגיות, אך מוצאים/ות את עצמם/ן שוב ושוב נתקלים/ות
         ב<strong>פחדים, דפוסים ישנים, מתח, אכזבות וחוסר בהירות</strong>.
@@ -614,13 +634,10 @@
   <!-- LAYERS -->
   <section class="layers">
     <div class="container">
-      <div class="reveal" style="text-align: center;">
-        <div class="section-eyebrow">מבנה כל מפגש</div>
-        <h2 class="section-title">שלושה רבדים בכל מפגש</h2>
-        <p style="color: var(--ink-soft); max-width: 560px; margin: 0 auto; font-size: 17px;">
-          כל מפגש שוזר יחד עבודה גופנית, נוכחות פנימית, ולמידה משותפת.
-        </p>
-      </div>
+      <h2 class="section-title reveal" style="text-align: center;">מבנה כל מפגש</h2>
+      <p class="reveal" style="text-align: center; color: var(--ink-soft); max-width: 560px; margin: 0 auto; font-size: 17px;">
+        כל מפגש שוזר יחד עבודה גופנית, נוכחות פנימית, ולמידה משותפת.
+      </p>
       <div class="layers-grid">
         <div class="layer-card reveal">
           <div class="layer-num">1</div>
@@ -649,10 +666,7 @@
   <!-- TOPICS -->
   <section class="topics">
     <div class="container">
-      <div class="reveal" style="text-align: center;">
-        <div class="section-eyebrow">הנושאים שנחקור</div>
-        <h2 class="section-title">נושאים שזורים לאורך כל הסדנה</h2>
-      </div>
+      <h2 class="section-title reveal" style="text-align: center;">הנושאים שנחקור</h2>
       <div class="topics-list">
         <article class="topic reveal">
           <span class="topic-mark"></span>
@@ -696,10 +710,7 @@
   <!-- TOOLS (Methodology) -->
   <section class="tools">
     <div class="container">
-      <div class="reveal" style="text-align: center;">
-        <div class="section-eyebrow">מתודולוגיה</div>
-        <h2 class="section-title">מה לוקחים הביתה</h2>
-      </div>
+      <h2 class="section-title reveal" style="text-align: center;">מיומנויות שנרכוש בסדנה</h2>
       <p class="tools-lead reveal">
         מטרת הסדנה אינה רק להעניק ידע, אלא לאפשר חוויה והתנסות שניתן לקחת אל החיים עצמם.
         לאורך המפגשים המשתתפים רוכשים מיומנויות וכלים מעשיים שניתן להמשיך לתרגל וליישם גם בבית.
@@ -757,7 +768,6 @@
   <section class="audience">
     <div class="container">
       <div class="reveal" style="text-align: center;">
-        <div class="section-eyebrow">למי מיועדת הסדנה</div>
         <h2 class="section-title">למי הסדנה מיועדת</h2>
         <p style="color: var(--ink-soft); max-width: 560px; margin: 0 auto; font-size: 17px;">
           לאנשים שמחפשים זוגיות, או נמצאים בתחילתה — ורוצים לעשות עבודה פנימית אמיתית.
@@ -776,10 +786,7 @@
   <!-- TECH SPECS -->
   <section class="specs">
     <div class="container">
-      <div class="reveal" style="text-align: center;">
-        <div class="section-eyebrow">פרטים טכניים</div>
-        <h2 class="section-title">מתי, כמה זמן ואיפה</h2>
-      </div>
+      <h2 class="section-title reveal" style="text-align: center;">פרטים טכניים</h2>
       <div class="specs-card reveal">
         <dl>
           <div class="spec-row">
@@ -806,10 +813,7 @@
   <!-- PRICING -->
   <section class="pricing">
     <div class="container">
-      <div class="reveal" style="text-align: center;">
-        <div class="section-eyebrow">מחירים</div>
-        <h2 class="section-title">השקעה בסדנה</h2>
-      </div>
+      <h2 class="section-title reveal" style="text-align: center;">השקעה בסדנה</h2>
       <div class="pricing-grid">
         <div class="price-card price-card--featured reveal">
           <span class="price-badge">מומלץ</span>
@@ -833,17 +837,9 @@
   <!-- FORM -->
   <section class="form-section" id="form">
     <div class="container">
-      <div class="reveal" style="text-align: center;">
-        <div class="section-eyebrow">הצטרפות לסדנה</div>
-        <h2 class="section-title">השאירו פרטים — ונחזור אליכם/ן</h2>
-        <p style="color: var(--ink-soft); max-width: 480px; margin: 0 auto; font-size: 17px;">
-          מילוי קצר, ובלחיצה אחת ההודעה נשלחת ישירות לוואטסאפ של פדית.
-        </p>
-      </div>
-
       <form class="form-card reveal" id="signupForm" novalidate>
         <h2>הצטרפות לסדנה</h2>
-        <p class="form-lead">מקומות מוגבלים · ימי ראשון ביולי 2026</p>
+        <p class="form-lead">ימי ראשון ביולי 2026</p>
 
         <div class="field" id="field-name">
           <label for="fullName">שם מלא</label>
@@ -882,32 +878,25 @@
   <!-- INSTRUCTOR -->
   <section class="instructor">
     <div class="container">
-      <div class="reveal" style="text-align: center;">
-        <div class="section-eyebrow">על המנחה</div>
-        <h2 class="section-title">מי שמלווה את הדרך</h2>
-      </div>
+      <h2 class="section-title reveal" style="text-align: center;">על המנחה</h2>
       <div class="instructor-wrap reveal" style="margin-top: 40px;">
-        <div class="instructor-avatar" aria-hidden="true">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
-            <circle cx="12" cy="7" r="4"/>
-          </svg>
+        <div class="instructor-avatar">
+          <img src="pedit.jpg" alt="פדית ציבייר" />
         </div>
         <div class="instructor-bio">
           <div class="instructor-name">פדית ציבייר</div>
-          <div class="instructor-role">מנחת הסדנה</div>
           <p>נשואה לאלון ואמא ליואב ומעיין.</p>
           <p><strong>מלווה תהליכי התפתחות והחלמה</strong> מטראומה, דיכאון וחרדה. מורה ליוגה ומנחת קבוצות.</p>
           <p>עובדת עם גישות גוף-רוח-נפש:</p>
-          <div class="skills-row">
-            <span class="skill-pill">FOBP — נשימה מעגלית משולבת פוקוסינג</span>
-            <span class="skill-pill">SE — החוויה הסומאטית</span>
-            <span class="skill-pill">מיינדפולנס</span>
-            <span class="skill-pill">TRE — רעד ספונטני</span>
-            <span class="skill-pill">EMDR</span>
-            <span class="skill-pill">ריברסינג</span>
-            <span class="skill-pill">קבלה</span>
-          </div>
+          <ul class="skills-list">
+            <li><strong>FOBP</strong> — נשימה מעגלית משולבת פוקוסינג</li>
+            <li><strong>SE</strong> — החוויה הסומאטית</li>
+            <li>מיינדפולנס</li>
+            <li><strong>TRE</strong> — רעד ספונטני</li>
+            <li>EMDR</li>
+            <li>ריברסינג</li>
+            <li>קבלה</li>
+          </ul>
           <p>מלווה תהליכים אישיים וקבוצתיים. מייסדת <strong>"סטודיו לנשום"</strong> — קליניקה פרטית בקריית אונו.</p>
         </div>
       </div>
@@ -918,7 +907,7 @@
   <section class="closing">
     <div class="container reveal">
       <p class="closing-quote">
-        "הסדנה היא הזמנה לעצור לרגע את החיפוש בחוץ ולהפנות את המבט פנימה. ללמוד להקשיב לגוף, להרגיע את התודעה, לשחרר מתחים ישנים, לפגוש את עצמנו בכנות ולהעמיק את ההבנה שלנו לגבי אהבה, זוגיות וקשר."
+        הסדנה היא הזמנה לעצור לרגע את החיפוש בחוץ ולהפנות את המבט פנימה. ללמוד להקשיב לגוף, להרגיע את התודעה, לשחרר מתחים ישנים, לפגוש את עצמנו בכנות ולהעמיק את ההבנה שלנו לגבי אהבה, זוגיות וקשר
       </p>
       <span class="closing-mark"></span>
       <p class="closing-final">
