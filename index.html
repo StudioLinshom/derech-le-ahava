@@ -444,15 +444,15 @@
     .field.has-error input, .field.has-error select { border-color: #B8654C; }
     .submit-btn {
       width: 100%; padding: 18px;
-      background: #25D366; color: #fff; border: none;
+      background: var(--accent); color: #fff; border: none;
       border-radius: 100px;
       font-family: inherit; font-size: 17px; font-weight: 500;
       cursor: pointer;
       display: inline-flex; align-items: center; justify-content: center; gap: 10px;
-      transition: all 0.3s; box-shadow: 0 8px 24px rgba(37, 211, 102, 0.32);
+      transition: all 0.3s; box-shadow: 0 8px 24px rgba(184, 101, 76, 0.32);
       margin-top: 10px;
     }
-    .submit-btn:hover { background: #1FB855; transform: translateY(-2px); box-shadow: 0 12px 32px rgba(37, 211, 102, 0.42); }
+    .submit-btn:hover { background: var(--accent-deep); transform: translateY(-2px); box-shadow: 0 12px 32px rgba(184, 101, 76, 0.42); }
     .submit-btn svg { width: 22px; height: 22px; fill: currentColor; }
     .form-note { text-align: center; color: var(--ink-mute); font-size: 13px; margin-top: 18px; line-height: 1.6; }
 
@@ -541,6 +541,58 @@
     footer a { color: var(--accent-soft); }
     footer a:hover { border-bottom-color: var(--accent-soft); }
     .footer-divider { width: 50px; height: 2px; background: var(--accent); margin: 24px auto; border-radius: 2px; opacity: 0.7; }
+
+    /* ============ VALIDATION MODAL ============ */
+    .modal-overlay {
+      position: fixed; inset: 0;
+      background: rgba(46, 32, 24, 0.42);
+      backdrop-filter: blur(4px);
+      display: flex; align-items: center; justify-content: center;
+      z-index: 300;
+      opacity: 0; pointer-events: none;
+      transition: opacity 0.25s ease;
+      padding: 20px;
+    }
+    .modal-overlay.active { opacity: 1; pointer-events: auto; }
+    .modal-box {
+      background: var(--bg-card);
+      padding: 40px 32px 32px;
+      border-radius: var(--radius-lg);
+      max-width: 380px; width: 100%;
+      text-align: center;
+      box-shadow: 0 20px 60px rgba(46, 32, 24, 0.25);
+      transform: translateY(20px) scale(0.96);
+      transition: transform 0.3s cubic-bezier(0.22, 0.61, 0.36, 1);
+    }
+    .modal-overlay.active .modal-box { transform: translateY(0) scale(1); }
+    .modal-icon {
+      width: 56px; height: 56px; border-radius: 50%;
+      background: rgba(184, 101, 76, 0.12);
+      display: inline-flex; align-items: center; justify-content: center;
+      margin: 0 auto 18px;
+      color: var(--accent-deep);
+    }
+    .modal-icon svg { width: 28px; height: 28px; }
+    .modal-title {
+      font-family: 'Frank Ruhl Libre', serif; font-weight: 700;
+      font-size: 24px; color: var(--ink);
+      margin: 0 0 10px;
+    }
+    .modal-message {
+      color: var(--ink-soft);
+      font-size: 16px; line-height: 1.6;
+      margin: 0 0 28px;
+    }
+    .modal-close-btn {
+      background: var(--accent); color: #fff;
+      border: none; border-radius: 100px;
+      padding: 12px 36px;
+      font-family: inherit; font-size: 15px; font-weight: 500;
+      cursor: pointer;
+      transition: background 0.2s, transform 0.2s;
+      box-shadow: 0 6px 18px rgba(184, 101, 76, 0.25);
+    }
+    .modal-close-btn:hover { background: var(--accent-deep); transform: translateY(-1px); }
 
     /* ============ STICKY CTA ============ */
     .sticky-cta {
@@ -702,8 +754,8 @@
         <article class="topic reveal">
           <span class="topic-mark"></span>
           <h3>קבלה ונתינה בזוגיות</h3>
-          <p>מאיזה מקום פנימי אנחנו מגיעים לקשר? האם אנחנו מחפשים מישהו שימלא חוסר, או באים ממקום של אחריות, בשלות ויכולת לתת ולקבל?</p>
-          <p>נחקור את הדינמיקה שבין נתינה לקבלה, ונכיר עקרונות רוחניים וחוקים אנרגטיים המשפיעים על מערכות יחסים:</p>
+          <p>מאיזה מקום פנימי אנחנו מגיעים לקשר? האם אנחנו מחפשים מישהו שימלא חוסר או באים ממקום של אחריות, בשלות ויכולת לתת ולקבל?</p>
+          <p>נחקור את הדינמיקה שבין נתינה לקבלה ונכיר עקרונות רוחניים וחוקים אנרגטיים המשפיעים על מערכות יחסים:</p>
           <ul>
             <li>חוק הזריעה והקצירה</li>
             <li>חוק "דומה מושך דומה"</li>
@@ -760,7 +812,7 @@
       <div class="reveal" style="text-align: center;">
         <h2 class="section-title">למי הסדנה מיועדת</h2>
         <p style="color: var(--ink-soft); max-width: 560px; margin: 0 auto; font-size: 17px;">
-          לאנשים שמחפשים זוגיות, או נמצאים בתחילתה — ורוצים לעשות עבודה פנימית אמיתית.
+          לגברים ונשים שמחפשים/ות זוגיות, או נמצאים/ות בתחילתה — ורוצים/ות לעשות עבודה פנימית אמיתית.
         </p>
       </div>
       <ul class="audience-list reveal">
@@ -888,9 +940,8 @@
           <label for="gender">מין</label>
           <select id="gender" name="gender" required>
             <option value="" disabled selected>בחר/י</option>
-            <option value="אישה">אישה</option>
-            <option value="גבר">גבר</option>
-            <option value="אחר">אחר / מעדיף/ה לא לציין</option>
+            <option value="זכר">זכר</option>
+            <option value="נקבה">נקבה</option>
           </select>
           <div class="error">נא לבחור</div>
         </div>
@@ -916,6 +967,18 @@
       <p>שאלות? כתבו בוואטסאפ ל-<a href="https://wa.me/972548111353" target="_blank" rel="noopener"><bdi dir="ltr">054-8111353</bdi></a></p>
     </div>
   </footer>
+
+  <!-- VALIDATION MODAL -->
+  <div class="modal-overlay" id="validationModal" aria-hidden="true">
+    <div class="modal-box" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+      <div class="modal-icon" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+      </div>
+      <h3 id="modalTitle" class="modal-title">רגע לפני השליחה</h3>
+      <p class="modal-message">כדי לשלוח את ההודעה — נא למלא את כל השדות.</p>
+      <button type="button" class="modal-close-btn">הבנתי</button>
+    </div>
+  </div>
 
   <!-- STICKY CTA -->
   <div class="sticky-cta" id="stickyCta">
@@ -955,6 +1018,14 @@
       formSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
     });
 
+    // Validation modal
+    const modal = document.getElementById('validationModal');
+    const showModal = () => modal.classList.add('active');
+    const hideModal = () => modal.classList.remove('active');
+    modal.querySelector('.modal-close-btn').addEventListener('click', hideModal);
+    modal.addEventListener('click', (e) => { if (e.target === modal) hideModal(); });
+    document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && modal.classList.contains('active')) hideModal(); });
+
     // Form -> WhatsApp
     const form = document.getElementById('signupForm');
     const WA_NUMBER = '972548111353';
@@ -968,7 +1039,7 @@
       if (name.length < 2) { setError('field-name', true); ok = false; } else setError('field-name', false);
       if (!age || +age < 18 || +age > 120) { setError('field-age', true); ok = false; } else setError('field-age', false);
       if (!gender) { setError('field-gender', true); ok = false; } else setError('field-gender', false);
-      if (!ok) return;
+      if (!ok) { showModal(); return; }
       const message =
         'שלום, אני מעוניין/ת להירשם לסדנת "הדרך לאהבה".\n' +
         'שם: ' + name + '\n' +
