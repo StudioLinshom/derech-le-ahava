@@ -11,6 +11,24 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Frank+Ruhl+Libre:wght@500;700;900&family=Heebo:wght@300;400;500;700&display=swap" rel="stylesheet" />
+
+  <!-- Meta Pixel Code -->
+  <script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '27499768226285774');
+    fbq('track', 'PageView');
+  </script>
+  <noscript><img height="1" width="1" style="display:none"
+    src="https://www.facebook.com/tr?id=27499768226285774&ev=PageView&noscript=1"
+    alt="" /></noscript>
+  <!-- End Meta Pixel Code -->
   <style>
     :root {
       --bg: #FAF6F1;
@@ -965,6 +983,7 @@
       <p>בהנחיית פדית ציבייר · "סטודיו לנשום", קריית אונו</p>
       <div class="footer-divider"></div>
       <p>שאלות? כתבו בוואטסאפ ל-<a href="https://wa.me/972548111353" target="_blank" rel="noopener"><bdi dir="ltr">054-8111353</bdi></a></p>
+      <p style="font-size: 12px; opacity: 0.5; margin-top: 18px;">דף זה משתמש ב-Meta Pixel למטרות סטטיסטיקה ופרסום.</p>
     </div>
   </footer>
 
@@ -1040,6 +1059,13 @@
       if (!age || +age < 18 || +age > 120) { setError('field-age', true); ok = false; } else setError('field-age', false);
       if (!gender) { setError('field-gender', true); ok = false; } else setError('field-gender', false);
       if (!ok) { showModal(); return; }
+      // Meta Pixel — track form submission as Lead event for retargeting
+      if (typeof fbq !== 'undefined') {
+        fbq('track', 'Lead', {
+          content_name: 'הדרך לאהבה — סדנה',
+          content_category: 'workshop signup'
+        });
+      }
       const message =
         'שלום, אני מעוניין/ת להירשם לסדנת "הדרך לאהבה".\n' +
         'שם: ' + name + '\n' +
