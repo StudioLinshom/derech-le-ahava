@@ -1051,6 +1051,12 @@
     function setError(fieldId, hasError) { document.getElementById(fieldId).classList.toggle('has-error', hasError); }
     form.addEventListener('submit', (ev) => {
       ev.preventDefault();
+      trackOnce('Form_Submit_Attempted');
+
+      // Open a blank tab IMMEDIATELY inside the user-initiated click to bypass
+      // iOS Safari's popup blocker. We'll set its URL only if validation passes.
+      const newWindow = window.open('', '_blank');
+
       const name = form.fullName.value.trim();
       const age = form.age.value.trim();
       const gender = form.gender.value;
@@ -1058,7 +1064,12 @@
       if (name.length < 2) { setError('field-name', true); ok = false; } else setError('field-name', false);
       if (!age || +age < 18 || +age > 120) { setError('field-age', true); ok = false; } else setError('field-age', false);
       if (!gender) { setError('field-gender', true); ok = false; } else setError('field-gender', false);
-      if (!ok) { showModal(); return; }
+      if (!ok) {
+        if (newWindow) newWindow.close();
+        trackOnce('Form_Validation_Failed');
+        showModal();
+        return;
+      }
       // Meta Pixel — track form submission as Lead event for retargeting
       if (typeof fbq !== 'undefined') {
         fbq('track', 'Lead', {
@@ -1072,8 +1083,57 @@
         'גיל: ' + age + '\n' +
         'מין: ' + gender;
       const url = 'https://wa.me/' + WA_NUMBER + '?text=' + encodeURIComponent(message);
-      window.open(url, '_blank', 'noopener');
+      if (newWindow) {
+        newWindow.location.href = url;
+      } else {
+        // Popup was blocked or unavailable — fall back to current-tab navigation
+        window.location.href = url;
+      }
     });
+
+    // ============ FUNNEL TRACKING ============
+    // Custom Meta Pixel events to diagnose drop-off between PageView and Lead.
+    // Each event fires at most once per session.
+    const firedEvents = new Set();
+    function trackOnce(eventName, params) {
+      if (firedEvents.has(eventName)) return;
+      firedEvents.add(eventName);
+      if (typeof fbq !== 'undefined') {
+        fbq('trackCustom', eventName, params || {});
+      }
+    }
+
+    // Scroll depth — 25/50/75/100%
+    let lastScrollPct = 0;
+    window.addEventListener('scroll', () => {
+      const docHeight = document.documentElement.scrollHeight - innerHeight;
+      if (docHeight <= 0) return;
+      const pct = Math.round((scrollY / docHeight) * 100);
+      if (pct <= lastScrollPct) return;
+      lastScrollPct = pct;
+      for (const t of [25, 50, 75, 100]) {
+        if (pct >= t) trackOnce('ScrollDepth_' + t);
+      }
+    }, { passive: true });
+
+    // Hero CTA click
+    document.querySelectorAll('.cta-primary').forEach(btn => {
+      btn.addEventListener('click', () => trackOnce('CTA_Click_Hero'));
+    });
+
+    // Sticky CTA click (already has a smooth-scroll handler; just add tracking)
+    sticky.querySelector('a').addEventListener('click', () => trackOnce('CTA_Click_Sticky'));
+
+    // Form section reached (any part visible)
+    const formCard = document.querySelector('.form-card');
+    if (formCard) {
+      new IntersectionObserver((entries) => {
+        if (entries[0].isIntersecting) trackOnce('Form_Reached');
+      }, { threshold: 0.25 }).observe(formCard);
+    }
+
+    // First time a form field gets focus
+    form.addEventListener('focusin', () => trackOnce('Form_Started'), { once: true });
   </script>
 </body>
 </html>
