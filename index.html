@@ -1050,13 +1050,17 @@
     const form = document.getElementById('signupForm');
     const WA_NUMBER = '972548111353';
     function setError(fieldId, hasError) { document.getElementById(fieldId).classList.toggle('has-error', hasError); }
+    // iOS Safari blocks window.open after async work (e.g. fbq).
+    // Android Chrome opens WhatsApp faster with direct navigation — no blank tab needed.
+    const isiOS = /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
+
     form.addEventListener('submit', (ev) => {
       ev.preventDefault();
       trackOnce('Form_Submit_Attempted');
 
-      // Open a blank tab IMMEDIATELY inside the user-initiated click to bypass
-      // iOS Safari's popup blocker. We'll set its URL only if validation passes.
-      const newWindow = window.open('', '_blank');
+      // Only iOS needs the blank-tab popup-blocker bypass.
+      // For Android/desktop, navigate the current tab directly — WhatsApp opens immediately.
+      const newWindow = isiOS ? window.open('', '_blank') : null;
 
       const name = form.fullName.value.trim();
       const age = form.age.value.trim();
@@ -1085,9 +1089,10 @@
         'מין: ' + gender;
       const url = 'https://wa.me/' + WA_NUMBER + '?text=' + encodeURIComponent(message);
       if (newWindow) {
+        // iOS path: navigate the blank tab we pre-opened
         newWindow.location.href = url;
       } else {
-        // Popup was blocked or unavailable — fall back to current-tab navigation
+        // Android/desktop path: direct navigation in current tab
         window.location.href = url;
       }
     });
