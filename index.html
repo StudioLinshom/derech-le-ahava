@@ -269,18 +269,42 @@
     /* ============ TOOLS (Methodology) ============ */
     .tools { background: var(--bg-soft); }
     .tools-lead {
-      text-align: center; max-width: 620px; margin: 0 auto 18px;
-      color: var(--ink-soft); font-size: 17.5px; line-height: 1.75; font-weight: 300;
+      text-align: center; max-width: 620px; margin: 0 auto 32px;
+      color: var(--ink); font-size: 18px; line-height: 1.6; font-weight: 400;
     }
-    .tools-lead strong {
-      color: var(--ink); font-weight: 600;
+    .tools-lead strong { color: var(--accent-deep); font-weight: 600; }
+
+    .benefits-list {
+      list-style: none; padding: 0;
+      max-width: 540px; margin: 0 auto;
+      display: grid; gap: 14px;
     }
-    .tools-lead--emphasis {
-      color: var(--ink); font-weight: 500;
+    .benefits-list li {
+      display: flex; align-items: flex-start; gap: 12px;
+      font-size: 16.5px; line-height: 1.5;
+      color: var(--ink);
+      padding: 14px 18px;
+      background: var(--bg-card);
+      border-radius: 12px;
+      border: 1px solid rgba(184, 101, 76, 0.15);
     }
-    .tools-techniques {
-      text-align: center; max-width: 620px; margin: 36px auto 0;
-      color: var(--ink); font-size: 17px; line-height: 1.7; font-weight: 500;
+    .benefits-list li::before {
+      content: '';
+      flex-shrink: 0;
+      width: 22px; height: 22px;
+      border-radius: 50%;
+      background-color: var(--accent);
+      background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'><polyline points='20 6 9 17 4 12'/></svg>");
+      background-size: 14px;
+      background-position: center;
+      background-repeat: no-repeat;
+      margin-top: 1px;
+    }
+
+    .tools-methods {
+      text-align: center; max-width: 620px; margin: 32px auto 0;
+      color: var(--ink-mute); font-size: 14.5px; line-height: 1.6;
+      font-style: italic; font-weight: 300;
     }
     .tools-grid {
       display: grid; gap: 18px;
@@ -818,17 +842,20 @@
     <div class="container">
       <h2 class="section-title reveal" style="text-align: center;">מה נקבל בסדנה</h2>
       <p class="tools-lead reveal">
-        הייחודיות של הסדנה היא בשילוב בין חקירה והעמקה תודעתית לבין עבודה ישירה עם <strong>מערכת העצבים ומערכת ההישרדות</strong>.
-      </p>
-      <p class="tools-lead tools-lead--emphasis reveal">
-        השילוב הזה מאפשר לזהות ולשחרר דפוסים ישנים, מנגנוני הגנה והרגלי תגובה שהוטמעו בגוף ובנפש לאורך השנים, ובמקביל ליצור קרקע יציבה ופורייה להתחדשות, לצמיחה ולשינוי עמוק.
-      </p>
-      <p class="tools-lead reveal">
-        כאשר מערכת העצבים לומדת לחוות יותר ביטחון, נפתחת אפשרות רחבה יותר לעבודה תודעתית, לבחירה חופשית ולפיתוח דרכי התמודדות חדשות ומיטיבות.
+        שילוב ייחודי בין עבודה תודעתית עמוקה לבין עבודה ישירה עם <strong>מערכת העצבים ומערכת ההישרדות</strong>.
       </p>
 
-      <p class="tools-techniques reveal">
-        הכלים שנעבוד איתם: מיינדפולנס, TRE®, התבוננות במחשבות ובאמונות (Byron Katie), תקשורת מקרבת (NVC), וידע ותובנות על זוגיות.
+      <ul class="benefits-list reveal">
+        <li>שחרור מתחים ישנים שהצטברו בגוף ובנפש</li>
+        <li>כלים מעשיים לוויסות עצמי בחרדה, לחץ ועומס רגשי</li>
+        <li>הרגעת מנגנוני הגנה אוטומטיים שמפריעים לקרבה ולאינטימיות</li>
+        <li>זיהוי דפוסים חוזרים שמשפיעים על מערכות היחסים</li>
+        <li>תקשורת כנה ומקרבת מתוך הקשבה לרגשות ולצרכים</li>
+        <li>בסיס יציב לזוגיות מתוך מודעות ובחירה חופשית</li>
+      </ul>
+
+      <p class="tools-methods reveal">
+        העבודה משלבת מיינדפולנס, TRE®, התבוננות במחשבות בהשראת Byron Katie, ותקשורת מקרבת (NVC).
       </p>
 
       <p class="tools-outro reveal">
