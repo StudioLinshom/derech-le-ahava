@@ -153,6 +153,16 @@
       margin: 0 auto 36px;
       line-height: 1.6;
     }
+    .hero-hook {
+      font-family: 'Frank Ruhl Libre', serif;
+      font-size: clamp(20px, 2.4vw, 26px);
+      line-height: 1.5;
+      color: var(--accent-deep);
+      font-weight: 500;
+      max-width: 640px;
+      margin: 0 auto 18px;
+      text-align: center;
+    }
 
     .meta-row { display: flex; flex-wrap: wrap; gap: 14px; justify-content: center; margin-bottom: 36px; }
     .meta-pill {
@@ -410,6 +420,10 @@
       display: grid; gap: 22px; margin-top: 44px;
       grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
       max-width: 720px; margin-inline: auto;
+    }
+    .pricing-grid--single {
+      grid-template-columns: minmax(0, 360px);
+      justify-content: center;
     }
     .price-card {
       background: var(--bg-card);
@@ -730,6 +744,7 @@
         <circle cx="0" cy="-2" r="4" fill="#8E4A36" opacity="0.7"/>
       </svg>
 
+      <p class="hero-hook">הקושי בזוגיות הוא לא במציאת בן/בת הזוג —<br />אלא במה שאנחנו מביאים איתנו אל הקשר.</p>
       <span class="eyebrow">סדנה בת 4 מפגשים</span>
       <h1>הדרך לאהבה</h1>
       <p class="hero-sub">מסע להכנת הקרקע שבתוכנו<br />לזוגיות מיטיבה, בריאה ומלאת חיים.</p>
@@ -909,17 +924,11 @@
   <section class="pricing">
     <div class="container">
       <h2 class="section-title reveal" style="text-align: center;">השקעה בסדנה</h2>
-      <div class="pricing-grid">
+      <div class="pricing-grid pricing-grid--single">
         <div class="price-card price-card--featured reveal">
-          <span class="price-badge">מומלץ</span>
-          <div class="price-label">הרשמה מוקדמת</div>
-          <div class="price-amount"><span class="currency">₪</span>980</div>
-          <div class="price-when">תקף עד <strong><bdi dir="ltr">25.6.2026</bdi></strong></div>
-        </div>
-        <div class="price-card reveal">
-          <div class="price-label">מחיר מלא</div>
+          <div class="price-label">השתתפות בסדנה</div>
           <div class="price-amount"><span class="currency">₪</span>1,160</div>
-          <div class="price-when">מ-<strong><bdi dir="ltr">26.6.2026</bdi></strong> ואילך</div>
+          <div class="price-when">לסדרה של 4 מפגשים</div>
         </div>
       </div>
       <p class="pricing-note reveal">
