@@ -153,14 +153,25 @@
       margin: 0 auto 36px;
       line-height: 1.6;
     }
-    .hero-hook {
+    .hero-screen-one {
+      min-height: calc(100svh - 90px);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding-bottom: 40px;
+    }
+    @media (max-width: 600px) {
+      .hero-screen-one { min-height: calc(100svh - 70px); }
+    }
+    .hero-hook-big {
       font-family: 'Frank Ruhl Libre', serif;
-      font-size: clamp(20px, 2.4vw, 26px);
-      line-height: 1.5;
-      color: var(--accent-deep);
-      font-weight: 500;
-      max-width: 640px;
-      margin: 0 auto 18px;
+      font-size: clamp(26px, 4vw, 46px);
+      line-height: 1.45;
+      color: var(--ink);
+      font-weight: 700;
+      max-width: 680px;
+      margin: 0 auto;
       text-align: center;
     }
 
@@ -518,6 +529,23 @@
     }
     .submit-btn:hover { background: var(--accent-deep); transform: translateY(-2px); box-shadow: 0 12px 32px rgba(184, 101, 76, 0.42); }
     .submit-btn svg { width: 22px; height: 22px; fill: currentColor; }
+    .soft-cta-btn {
+      display: block;
+      text-align: center;
+      margin-top: 14px;
+      padding: 14px;
+      border: 1.5px solid var(--accent);
+      background: transparent;
+      color: var(--accent);
+      border-radius: 100px;
+      font-family: inherit;
+      font-size: 15px;
+      font-weight: 500;
+      cursor: pointer;
+      text-decoration: none;
+      transition: background 0.2s, color 0.2s;
+    }
+    .soft-cta-btn:hover { background: var(--accent); color: #fff; }
     .form-note { text-align: center; color: var(--ink-mute); font-size: 13px; margin-top: 18px; line-height: 1.6; }
 
     /* ============ INSTRUCTOR ============ */
@@ -709,42 +737,43 @@
   <!-- HERO -->
   <section class="hero">
     <div class="container hero-inner">
-      <!-- Lotus -->
-      <svg class="lotus" viewBox="-90 -100 180 110" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-        <defs>
-          <linearGradient id="petalOuter" x1="0" y1="1" x2="0" y2="0">
-            <stop offset="0%"  stop-color="#D89A85" stop-opacity="0.45"/>
-            <stop offset="100%" stop-color="#E9B8A6"/>
-          </linearGradient>
-          <linearGradient id="petalMid" x1="0" y1="1" x2="0" y2="0">
-            <stop offset="0%"  stop-color="#B5A3CB" stop-opacity="0.55"/>
-            <stop offset="100%" stop-color="#CFBFE0"/>
-          </linearGradient>
-          <linearGradient id="petalCenter" x1="0" y1="1" x2="0" y2="0">
-            <stop offset="0%"  stop-color="#C97B63" stop-opacity="0.85"/>
-            <stop offset="100%" stop-color="#E0A28E"/>
-          </linearGradient>
-          <linearGradient id="petalShine" x1="0" y1="0" x2="0" y2="1">
-            <stop offset="0%" stop-color="#fff" stop-opacity="0.55"/>
-            <stop offset="100%" stop-color="#fff" stop-opacity="0"/>
-          </linearGradient>
-        </defs>
-
-        <!-- Outermost petals (terracotta) -->
-        <path d="M0 0 C -16 -22 -10 -60 0 -78 C 10 -60 16 -22 0 0 Z" fill="url(#petalOuter)" transform="rotate(-62)" opacity="0.92"/>
-        <path d="M0 0 C -16 -22 -10 -60 0 -78 C 10 -60 16 -22 0 0 Z" fill="url(#petalOuter)" transform="rotate(62)" opacity="0.92"/>
-        <!-- Mid petals (lavender) -->
-        <path d="M0 0 C -14 -25 -8 -68 0 -85 C 8 -68 14 -25 0 0 Z" fill="url(#petalMid)" transform="rotate(-32)" opacity="0.94"/>
-        <path d="M0 0 C -14 -25 -8 -68 0 -85 C 8 -68 14 -25 0 0 Z" fill="url(#petalMid)" transform="rotate(32)" opacity="0.94"/>
-        <!-- Center petal -->
-        <path d="M0 0 C -13 -30 -8 -72 0 -92 C 8 -72 13 -30 0 0 Z" fill="url(#petalCenter)"/>
-        <!-- Subtle shine on center -->
-        <path d="M0 -8 C -8 -28 -5 -62 0 -80 C 5 -62 8 -28 0 -8 Z" fill="url(#petalShine)" opacity="0.45"/>
-        <!-- Base dot -->
-        <circle cx="0" cy="-2" r="4" fill="#8E4A36" opacity="0.7"/>
-      </svg>
-
-      <p class="hero-hook">הקושי בזוגיות הוא לא במציאת בן/בת הזוג —<br />אלא במה שאנחנו מביאים איתנו אל הקשר.</p>
+      <!-- Screen 1: lotus + hook sentence -->
+      <div class="hero-screen-one">
+        <svg class="lotus" viewBox="-90 -100 180 110" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <defs>
+            <linearGradient id="petalOuter" x1="0" y1="1" x2="0" y2="0">
+              <stop offset="0%"  stop-color="#D89A85" stop-opacity="0.45"/>
+              <stop offset="100%" stop-color="#E9B8A6"/>
+            </linearGradient>
+            <linearGradient id="petalMid" x1="0" y1="1" x2="0" y2="0">
+              <stop offset="0%"  stop-color="#B5A3CB" stop-opacity="0.55"/>
+              <stop offset="100%" stop-color="#CFBFE0"/>
+            </linearGradient>
+            <linearGradient id="petalCenter" x1="0" y1="1" x2="0" y2="0">
+              <stop offset="0%"  stop-color="#C97B63" stop-opacity="0.85"/>
+              <stop offset="100%" stop-color="#E0A28E"/>
+            </linearGradient>
+            <linearGradient id="petalShine" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stop-color="#fff" stop-opacity="0.55"/>
+              <stop offset="100%" stop-color="#fff" stop-opacity="0"/>
+            </linearGradient>
+          </defs>
+          <!-- Outermost petals (terracotta) -->
+          <path d="M0 0 C -16 -22 -10 -60 0 -78 C 10 -60 16 -22 0 0 Z" fill="url(#petalOuter)" transform="rotate(-62)" opacity="0.92"/>
+          <path d="M0 0 C -16 -22 -10 -60 0 -78 C 10 -60 16 -22 0 0 Z" fill="url(#petalOuter)" transform="rotate(62)" opacity="0.92"/>
+          <!-- Mid petals (lavender) -->
+          <path d="M0 0 C -14 -25 -8 -68 0 -85 C 8 -68 14 -25 0 0 Z" fill="url(#petalMid)" transform="rotate(-32)" opacity="0.94"/>
+          <path d="M0 0 C -14 -25 -8 -68 0 -85 C 8 -68 14 -25 0 0 Z" fill="url(#petalMid)" transform="rotate(32)" opacity="0.94"/>
+          <!-- Center petal -->
+          <path d="M0 0 C -13 -30 -8 -72 0 -92 C 8 -72 13 -30 0 0 Z" fill="url(#petalCenter)"/>
+          <!-- Subtle shine on center -->
+          <path d="M0 -8 C -8 -28 -5 -62 0 -80 C 5 -62 8 -28 0 -8 Z" fill="url(#petalShine)" opacity="0.45"/>
+          <!-- Base dot -->
+          <circle cx="0" cy="-2" r="4" fill="#8E4A36" opacity="0.7"/>
+        </svg>
+        <h2 class="hero-hook-big">הקושי בזוגיות הוא לא במציאת בן/בת הזוג —<br />אלא במה שאנחנו מביאים איתנו אל הקשר.</h2>
+      </div>
+      <!-- Screen 2: workshop details -->
       <span class="eyebrow">סדנה בת 4 מפגשים</span>
       <h1>הדרך לאהבה</h1>
       <p class="hero-sub">מסע להכנת הקרקע שבתוכנו<br />לזוגיות מיטיבה, בריאה ומלאת חיים.</p>
@@ -759,7 +788,6 @@
   <!-- INTRO -->
   <section class="intro">
     <div class="container reveal">
-      <h2 class="section-title" style="text-align: center;">לפעמים הקושי הוא לא במציאת בן/בת הזוג<br />אלא במה שאנחנו מביאים איתנו אל הקשר</h2>
       <p class="intro-text">
         רבים ורבות רוצים/ות זוגיות, אך מוצאים/ות את עצמם/ן שוב ושוב נתקלים/ות
         ב<strong>פחדים, דפוסים ישנים, מתח, אכזבות וחוסר בהירות</strong>.
@@ -1014,6 +1042,7 @@
           </svg>
           שליחה בוואטסאפ
         </button>
+        <a href="#" class="soft-cta-btn" id="askQuestionBtn">יש לי שאלה לפני שאני נרשמ/ת</a>
         <p class="form-note">ההודעה תיפתח בוואטסאפ עם פרטיכם/ן — תלחצו "שלח" כדי להשלים את ההרשמה.</p>
       </form>
     </div>
@@ -1136,6 +1165,21 @@
         newWindow.location.href = url;
       } else {
         // Android/desktop path: direct navigation in current tab
+        window.location.href = url;
+      }
+    });
+
+    // Soft CTA — open WhatsApp with question message (no form fill required)
+    document.getElementById('askQuestionBtn').addEventListener('click', (ev) => {
+      ev.preventDefault();
+      trackOnce('CTA_Click_AskQuestion');
+      const msg = 'שלום פדית 🌿 ראיתי את הסדנה "הדרך לאהבה" ויש לי כמה שאלות לפני שאני נרשמ/ת.';
+      const url = 'https://wa.me/' + WA_NUMBER + '?text=' + encodeURIComponent(msg);
+      if (isiOS) {
+        const win = window.open('', '_blank');
+        if (win) win.location.href = url;
+        else window.location.href = url;
+      } else {
         window.location.href = url;
       }
     });
