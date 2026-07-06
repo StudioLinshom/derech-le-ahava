@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="המלצות משתתפים — סדנת הוויה מתגלה, בהנחיית פדית ציבייר." />
+  <title>מה מספרים משתתפים — הדרך לאהבה</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Frank+Ruhl+Libre:wght@500;700;900&family=Heebo:wght@300;400;500;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #FAF6F1;
+      --bg-soft: #F3ECE2;
+      --bg-deep: #ECE0CE;
+      --bg-card: #FFFFFF;
+      --ink: #2E2018;
+      --ink-soft: #5A4639;
+      --ink-mute: #8B7668;
+      --accent: #B8654C;
+      --accent-soft: #D89A85;
+      --accent-deep: #8E4A36;
+      --lavender: #8E7BA8;
+      --lavender-soft: #B5A3CB;
+      --line: rgba(46, 32, 24, 0.10);
+      --radius: 18px;
+      --radius-lg: 28px;
+      --shadow-soft: 0 6px 30px rgba(46, 32, 24, 0.06);
+      --shadow-card: 0 12px 40px rgba(46, 32, 24, 0.08);
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      font-family: 'Heebo', system-ui, -apple-system, sans-serif;
+      font-weight: 400;
+      color: var(--ink);
+      background: var(--bg);
+      line-height: 1.75;
+      font-size: 17px;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+
+    h1, h2, h3 {
+      font-family: 'Frank Ruhl Libre', 'Heebo', serif;
+      font-weight: 700;
+      color: var(--ink);
+      letter-spacing: -0.01em;
+      line-height: 1.25;
+      margin: 0 0 0.5em;
+    }
+    p { margin: 0 0 1em; }
+    a { color: var(--accent-deep); text-decoration: none; border-bottom: 1px solid transparent; transition: border-color 0.2s; }
+    a:hover { border-bottom-color: var(--accent); }
+
+    .container { max-width: 880px; margin-inline: auto; padding-inline: 24px; }
+
+    /* ============ HEADER ============ */
+    .page-header {
+      position: relative;
+      padding: 80px 0 60px;
+      text-align: center;
+      overflow: hidden;
+      background:
+        radial-gradient(ellipse at 80% 0%, rgba(184, 101, 76, 0.10) 0%, transparent 55%),
+        radial-gradient(ellipse at 0% 80%, rgba(142, 123, 168, 0.12) 0%, transparent 55%),
+        linear-gradient(180deg, #FAF6F1 0%, #F3ECE2 100%);
+    }
+    .page-header::before, .page-header::after {
+      content: '';
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(60px);
+      opacity: 0.45;
+      pointer-events: none;
+    }
+    .page-header::before { width: 300px; height: 300px; background: var(--accent-soft); top: -100px; left: -100px; }
+    .page-header::after { width: 260px; height: 260px; background: var(--lavender-soft); bottom: -80px; right: -60px; }
+
+    .lotus {
+      display: block;
+      width: 80px;
+      height: auto;
+      margin: 0 auto 24px;
+      filter: drop-shadow(0 4px 12px rgba(184, 101, 76, 0.18));
+    }
+
+    .page-header h1 {
+      font-size: clamp(32px, 5vw, 48px);
+      margin-bottom: 20px;
+      position: relative;
+    }
+
+    .header-lead {
+      font-size: clamp(16px, 2vw, 19px);
+      color: var(--ink-soft);
+      font-weight: 300;
+      max-width: 600px;
+      margin: 0 auto 8px;
+      line-height: 1.7;
+      position: relative;
+    }
+    .header-lead strong { color: var(--ink); font-weight: 500; }
+
+    .header-sublead {
+      color: var(--accent-deep);
+      font-family: 'Frank Ruhl Libre', serif;
+      font-weight: 700;
+      font-size: 20px;
+      letter-spacing: 0.02em;
+      position: relative;
+    }
+
+    /* ============ TESTIMONIALS ============ */
+    .testimonials-section {
+      padding: 60px 0 80px;
+      background: var(--bg);
+    }
+
+    .testimonial-full {
+      position: relative;
+      background: var(--bg-card);
+      padding: 44px 38px;
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--line);
+      box-shadow: var(--shadow-soft);
+      max-width: 720px;
+      margin: 0 auto 48px;
+      transition: box-shadow 0.3s;
+    }
+    .testimonial-full:hover { box-shadow: var(--shadow-card); }
+    .testimonial-full:last-child { margin-bottom: 0; }
+    @media (max-width: 600px) { .testimonial-full { padding: 32px 24px; margin-bottom: 36px; } }
+
+    .testimonial-full::before {
+      content: '\201D';
+      position: absolute;
+      top: -8px; inset-inline-end: 28px;
+      font-family: 'Frank Ruhl Libre', serif;
+      font-size: 80px; line-height: 1;
+      color: var(--accent-soft); opacity: 0.45;
+      pointer-events: none;
+    }
+
+    .testimonial-full p {
+      font-family: 'Frank Ruhl Libre', serif;
+      font-size: 17.5px;
+      line-height: 1.85;
+      color: var(--ink);
+      font-weight: 500;
+      margin: 0 0 16px;
+    }
+    .testimonial-full p:last-child { margin-bottom: 0; }
+
+    .testimonial-divider {
+      display: block;
+      width: 60px; height: 2px;
+      background: var(--accent);
+      border-radius: 2px;
+      opacity: 0.5;
+      margin: 0 auto 48px;
+    }
+    @media (max-width: 600px) { .testimonial-divider { margin-bottom: 36px; } }
+
+    /* ============ BACK CTA ============ */
+    .back-cta {
+      text-align: center;
+      padding: 48px 0 0;
+    }
+    .back-cta a {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 16px 36px;
+      background: var(--accent); color: #fff;
+      border: none; border-radius: 100px;
+      font-family: inherit; font-size: 16px; font-weight: 500;
+      box-shadow: 0 8px 24px rgba(184, 101, 76, 0.28);
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      letter-spacing: 0.02em;
+    }
+    .back-cta a:hover {
+      background: var(--accent-deep);
+      transform: translateY(-2px);
+      box-shadow: 0 12px 32px rgba(184, 101, 76, 0.38);
+      border-bottom-color: transparent;
+    }
+    .back-cta a::after { content: '←'; font-size: 16px; }
+
+    /* ============ FOOTER ============ */
+    footer {
+      background: var(--ink);
+      color: rgba(255, 255, 255, 0.78);
+      padding: 48px 0 36px;
+      text-align: center;
+    }
+    footer h3 { color: #fff; font-size: 22px; margin-bottom: 12px; }
+    footer p { color: rgba(255, 255, 255, 0.65); font-size: 15px; margin-bottom: 8px; }
+    footer a { color: var(--accent-soft); }
+    footer a:hover { border-bottom-color: var(--accent-soft); }
+    .footer-divider { width: 50px; height: 2px; background: var(--accent); margin: 20px auto; border-radius: 2px; opacity: 0.7; }
+
+    /* ============ ANIMATIONS ============ */
+    .reveal { opacity: 0; transform: translateY(20px); transition: opacity 0.8s ease, transform 0.8s ease; }
+    .reveal.in { opacity: 1; transform: translateY(0); }
+    @media (prefers-reduced-motion: reduce) {
+      .reveal { opacity: 1; transform: none; transition: none; }
+      html { scroll-behavior: auto; }
+    }
+
+    @media (max-width: 600px) {
+      body { font-size: 16px; }
+      .page-header { padding: 60px 0 44px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header class="page-header">
+    <div class="container">
+      <svg class="lotus" viewBox="-90 -100 180 110" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <defs>
+          <linearGradient id="petalOuter" x1="0" y1="1" x2="0" y2="0">
+            <stop offset="0%" stop-color="#D89A85" stop-opacity="0.45"/>
+            <stop offset="100%" stop-color="#E9B8A6"/>
+          </linearGradient>
+          <linearGradient id="petalMid" x1="0" y1="1" x2="0" y2="0">
+            <stop offset="0%" stop-color="#B5A3CB" stop-opacity="0.55"/>
+            <stop offset="100%" stop-color="#CFBFE0"/>
+          </linearGradient>
+          <linearGradient id="petalCenter" x1="0" y1="1" x2="0" y2="0">
+            <stop offset="0%" stop-color="#C97B63" stop-opacity="0.85"/>
+            <stop offset="100%" stop-color="#E0A28E"/>
+          </linearGradient>
+          <linearGradient id="petalShine" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stop-color="#fff" stop-opacity="0.55"/>
+            <stop offset="100%" stop-color="#fff" stop-opacity="0"/>
+          </linearGradient>
+        </defs>
+        <path d="M0 0 C -16 -22 -10 -60 0 -78 C 10 -60 16 -22 0 0 Z" fill="url(#petalOuter)" transform="rotate(-62)" opacity="0.92"/>
+        <path d="M0 0 C -16 -22 -10 -60 0 -78 C 10 -60 16 -22 0 0 Z" fill="url(#petalOuter)" transform="rotate(62)" opacity="0.92"/>
+        <path d="M0 0 C -14 -25 -8 -68 0 -85 C 8 -68 14 -25 0 0 Z" fill="url(#petalMid)" transform="rotate(-32)" opacity="0.94"/>
+        <path d="M0 0 C -14 -25 -8 -68 0 -85 C 8 -68 14 -25 0 0 Z" fill="url(#petalMid)" transform="rotate(32)" opacity="0.94"/>
+        <path d="M0 0 C -13 -30 -8 -72 0 -92 C 8 -72 13 -30 0 0 Z" fill="url(#petalCenter)"/>
+        <path d="M0 -8 C -8 -28 -5 -62 0 -80 C 5 -62 8 -28 0 -8 Z" fill="url(#petalShine)" opacity="0.45"/>
+        <circle cx="0" cy="-2" r="4" fill="#8E4A36" opacity="0.7"/>
+      </svg>
+      <h1>מה מספרים משתתפים</h1>
+      <p class="header-lead">
+        הסדנה <strong>"הדרך לאהבה"</strong> יוצאת לדרך לראשונה.
+        בינתיים, מוזמנות ומוזמנים להכיר חוויות של משתתפים מתוך הסדנא האחרונה —
+      </p>
+      <p class="header-sublead">סדנת "הוויה מתגלה"</p>
+    </div>
+  </header>
+
+  <!-- TESTIMONIALS -->
+  <section class="testimonials-section">
+    <div class="container">
+
+      <article class="testimonial-full reveal">
+        <p>פדית מביאה איתה לסדנא איכויות של חום אנושי, אהבה אמיתית לאנשים ולטיפול בהם ושפע של טכניקות עוצמתיות מעולמות הגוף-נפש-תודעה: מיינדפולנס, ״העבודה״ של ביירון קייטי, TRE, נשימה מעגלית ועוד.</p>
+        <p>השילוב של האישיות שלה, הכוונה שהיא באה איתה לתת מעומק הלב והטכניקות המגוונות והעמוקות סייעו לי לעשות עבודה משמעותית מאד עבורי שלא ציפיתי שתתרחש ב-4 מפגשים. להבין, להיטען, להתעמק ולצאת עם צידה לדרך.</p>
+        <p>שמחה מאד שנתתי לעצמי את המתנה הזאת וממליצה בחום.</p>
+      </article>
+
+      <span class="testimonial-divider"></span>
+
+      <article class="testimonial-full reveal">
+        <p>פדית אהובה,</p>
+        <p>אני כבר מתגעגעת… מי היה מאמין שארבעה מפגשים יכולים להיות כל כך משמעותיים.</p>
+        <p>רציתי להגיד לך תודה מעומק הלב שלי. אני מרגישה שהסדנה הזאת באמת הייתה בשבילי משנה חיים. סוף סוף למדתי לנשום, כמה חיכיתי לרגע הזה. דרך ה־TRE למדתי להקשיב לגוף שלי ולסמוך עליו, וזה משהו שלא הכרתי קודם.</p>
+        <p>מעבר לכל הידע והכלים, הרגשתי שפשוט יצרת מקום שאפשר להיות בו. בלי מסכות, בלי להוכיח כלום, פשוט להיות. בשבילי זה היה כל כך משמעותי.</p>
+        <p>פגשתי אנשים מדהימים, כל אחד הביא את עצמו, והלב פשוט נפתח.</p>
+        <p>ואיך אפשר לא להתגעגע גם לכל המסביב… לאווירה, לשקט, לקלפים וללבנה, למלון, לג'ינג'ר, שהיו טעימים כל כך, פשוט מושלם ובעיקר לתחושה הזאת שכל יום ראשון אני מגיעה למקום שעושה לי טוב.</p>
+        <p>תודה על הלב שלך, על הדרך שלך, על הנוכחות שלך ועל כל מה שנתת לנו. אני באמת מרגישה שזכיתי להכיר אותך ולעבור את המסע הזה איתך.</p>
+        <p>כבר מחכה לפעם הבאה.</p>
+      </article>
+
+      <span class="testimonial-divider"></span>
+
+      <article class="testimonial-full reveal">
+        <p>עברתי חוויה עצומה. חוויה פנימית שאני מרגיש אותה עד היום. קשה לתאר במילים. יצאתי במפגש הרביעי והאחרון של הסדנא כשאני אוהב את עצמי.</p>
+        <p>התחלתי את הסדנא בתחושה שאני לא ראוי, לא שווה ועברתי תהליך עמוק, חוויה עמוקה, שורשית, שמשפיעה עלי עד היום.</p>
+        <p>כמה מילים על פדית: אני מכיר את פדית זמן רב. שמחתי לראות לאיזו רמה מקצועית גבוהה היא הגיעה. שליטה מלאה בחומר, נוכחות בכל שלב, רגישות גבוהה לבני אדם ולמה שהם עוברים וחווים.</p>
+        <p>הסדנא הזאת היא תהליך חשוב לכל מי שרוצה לגעת בפנימיות שלו, להבין את עצמו, לחוות תהליך מרפא ומרגש.</p>
+      </article>
+
+      <div class="back-cta reveal">
+        <a href="index.html#form">חזרה לדף הסדנה</a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container">
+      <h3>הדרך לאהבה</h3>
+      <p>סדנה בת 4 מפגשים · ימי שלישי בספטמבר 2026 · סביון</p>
+      <div class="footer-divider"></div>
+      <p>שאלות? כתבו בוואטסאפ ל-<a href="https://wa.me/972548111353" target="_blank" rel="noopener"><bdi dir="ltr">054-8111353</bdi></a></p>
+    </div>
+  </footer>
+
+  <script>
+    const io = new IntersectionObserver((entries) => {
+      for (const e of entries) {
+        if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
+      }
+    }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+    document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+  </script>
+</body>
+</html>

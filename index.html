@@ -380,6 +380,96 @@
       top: 1px;
     }
 
+    .layer-list {
+      list-style: none; padding: 0; margin: 12px 0 0;
+      display: grid; gap: 8px;
+    }
+    .layer-list li {
+      position: relative;
+      padding-inline-start: 20px;
+      color: var(--ink-soft);
+      font-size: 15.5px; line-height: 1.7;
+    }
+    .layer-list li::before {
+      content: '•';
+      color: var(--accent);
+      position: absolute;
+      inset-inline-start: 0;
+      font-weight: 700;
+      font-size: 18px;
+      top: -1px;
+    }
+    .layer-list li strong { color: var(--ink); font-weight: 600; }
+
+    /* ============ TESTIMONIALS ============ */
+    .testimonials { background: var(--bg-soft); }
+    .testimonials-lead {
+      text-align: center; max-width: 620px; margin: 0 auto 12px;
+      color: var(--ink-soft); font-size: 17px; line-height: 1.75; font-weight: 300;
+    }
+    .testimonials-lead strong { color: var(--ink); font-weight: 500; }
+    .testimonials-sublead {
+      text-align: center; max-width: 620px; margin: 0 auto 44px;
+      color: var(--accent-deep);
+      font-family: 'Frank Ruhl Libre', serif; font-weight: 500;
+      font-size: 17px; letter-spacing: 0.02em;
+    }
+    .quotes-grid {
+      display: grid; gap: 20px;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      margin-bottom: 40px;
+    }
+    .quote-card {
+      position: relative;
+      background: var(--bg-card);
+      padding: 34px 28px 24px;
+      margin: 0;
+      border-radius: var(--radius);
+      border: 1px solid var(--line);
+      box-shadow: var(--shadow-soft);
+      transition: transform 0.3s, box-shadow 0.3s;
+      display: flex; flex-direction: column; gap: 14px;
+    }
+    .quote-text { margin: 0; }
+    .quote-text::before, .quote-text::after { content: none; }
+    .quote-card:hover { transform: translateY(-3px); box-shadow: var(--shadow-card); }
+    .quote-card::before {
+      content: '\201D';
+      position: absolute;
+      top: -6px; inset-inline-end: 20px;
+      font-family: 'Frank Ruhl Libre', serif;
+      font-size: 72px; line-height: 1;
+      color: var(--accent-soft); opacity: 0.55;
+      pointer-events: none;
+    }
+    .quote-text {
+      font-family: 'Frank Ruhl Libre', serif;
+      font-style: italic;
+      font-size: 17.5px; line-height: 1.55;
+      color: var(--ink);
+      margin: 0;
+      font-weight: 500;
+    }
+    .quote-attr {
+      font-family: 'Heebo', sans-serif;
+      font-size: 13px; letter-spacing: 0.06em;
+      color: var(--ink-mute);
+      font-weight: 400;
+      margin-top: auto;
+    }
+    .testimonials-more {
+      text-align: center;
+    }
+    .testimonials-more a {
+      display: inline-flex; align-items: center; gap: 8px;
+      font-size: 15.5px;
+      color: var(--accent-deep);
+      border-bottom: 1px solid var(--accent-soft);
+      padding: 4px 2px;
+    }
+    .testimonials-more a::after { content: '←'; transition: transform 0.2s; }
+    .testimonials-more a:hover::after { transform: translateX(-3px); }
+
     /* ============ AUDIENCE ============ */
     .audience { background: var(--bg); }
     .audience-list {
@@ -794,8 +884,9 @@
         ב<strong>פחדים, דפוסים ישנים, מתח, אכזבות וחוסר בהירות</strong>.
       </p>
       <p class="intro-text">
-        בסדנה זו נלמד כיצד ליצור בתוכנו את התנאים שמאפשרים לקשר בריא להתפתח:
-        דרך חיבור לגוף, ויסות רגשי, שחרור מתחים, התבוננות פנימית והעמקת ההבנה של מהות הזוגיות.
+        בסדנה זו נלמד כיצד ליצור בתוכנו את התנאים שמאפשרים לקשר בריא להתפתח, באמצעות
+        <strong>שילוב ייחודי בין עבודה ישירה ועמוקה עם מערכת העצבים ומנגנוני ההגנה ההישרדותיים האוטומטיים של הגוף</strong>
+        לבין עבודה תודעתית הדרגתית.
       </p>
     </div>
   </section>
@@ -810,23 +901,28 @@
       <div class="layers-grid">
         <div class="layer-card reveal">
           <div class="layer-num">1</div>
-          <h3>תרגול TRE®</h3>
-          <p>שחרור מתח באמצעות רעד ספונטני — טכניקה פשוטה ויעילה לשחרור מתחים מהגוף.</p>
-          <p>עבודה ישירה עם <strong>מערכת העצבים ומערכת ההישרדות</strong>, המסייעת להפחית דפוסים כרוניים, להרגיע מנגנוני הגנה אוטומטיים ולשחרר מתח שהצטבר בגוף.</p>
+          <h3>תרגול TRE</h3>
+          <p><em>Tension &amp; Trauma Releasing Exercises</em></p>
+          <p>שחרור מתחים וטראומה שהצטברו בגוף, באמצעות <strong>רעד ספונטני</strong> — טכניקה פשוטה, עמוקה ויעילה מאוד.</p>
+          <p>התרגול עובד ישירות עם מערכת העצבים ומערכת ההישרדות, מסייע להפחית דפוסים כרוניים, להרגיע את מנגנוני ההגנה האוטומטיים ולשחרר מתח וטראומה שהצטברו בגוף.</p>
           <p>פיתוח יכולת לוויסות עצמי ולהפחתת חרדה, לחץ ועומס רגשי.</p>
-          <a class="layer-link" href="https://youtu.be/1PT1crBhhUE?si=f5XfImoSL_dhQGrm" target="_blank" rel="noopener">סרטון הסבר קצר על השיטה</a>
+          <a class="layer-link" href="https://www.youtube.com/watch?v=ffESIPOUzZM" target="_blank" rel="noopener">סרטון הסבר קצר על השיטה</a>
         </div>
         <div class="layer-card reveal">
           <div class="layer-num">2</div>
-          <h3>תרגול מיינדפולנס</h3>
-          <p>תרגול נוכחות, הקשבה פנימית וויסות רגשי.</p>
-          <p>פיתוח היכולת לפגוש את עצמנו ואת האחר מתוך פתיחות וסקרנות.</p>
+          <h3>עבודה תודעתית</h3>
+          <p>בכל מפגש, בנוסף לתרגול TRE, נשלב בהדרגה עבודה תודעתית ממגוון עולמות:</p>
+          <ul class="layer-list">
+            <li>מיינדפולנס</li>
+            <li>תקשורת מקרבת — NVC</li>
+            <li>עבודה עם מחשבות ואמונות שורשיות בהשראת <strong>Byron Katie</strong></li>
+          </ul>
         </div>
         <div class="layer-card reveal">
           <div class="layer-num">3</div>
           <h3>לימוד ושיח על זוגיות</h3>
-          <p>הרצאה, תרגילים, שאלות ותשובות.</p>
-          <p>שיתוף תובנות מתוך ניסיון חיים, למידה אישית ועבודה רבת שנים עם אנשים בתהליכי התפתחות.</p>
+          <p>הרצאה, תרגילי כתיבה, שאלות ותשובות — למידה מעמיקה על מהות הזוגיות ועל העבודה התודעתית הנדרשת.</p>
+          <p>הלימוד מבוסס על עולמות הרוח — <strong>קבלה, בודהיזם וסופיזם</strong> — ומתוך ניסיון חיים, למידה אישית ועבודה רבת שנים עם אנשים בתהליכי התפתחות ובתהליכי החלמה מטראומה.</p>
         </div>
       </div>
     </div>
@@ -855,9 +951,6 @@
   <section class="tools">
     <div class="container">
       <h2 class="section-title reveal" style="text-align: center;">מה נקבל בסדנה</h2>
-      <p class="tools-lead reveal">
-        <strong>שילוב ייחודי בין עבודה תודעתית עמוקה לבין עבודה ישירה עם מערכת העצבים ומערכת ההישרדות</strong>
-      </p>
 
       <ul class="benefits-list reveal">
         <li>שחרור מתחים ישנים שהצטברו בגוף ובנפש</li>
@@ -869,56 +962,12 @@
       </ul>
 
       <p class="tools-methods reveal">
-        העבודה משלבת מיינדפולנס, TRE®, התבוננות במחשבות בהשראת Byron Katie, ותקשורת מקרבת (NVC).
+        העבודה משלבת מיינדפולנס, TRE®, התבוננות במחשבות בהשראת Byron Katie, תקשורת מקרבת (NVC) ולימוד על מהות הזוגיות.
       </p>
 
       <p class="tools-outro reveal">
         הסדנה אינה מסתיימת בתום המפגש האחרון. הכלים, התרגולים והתובנות שנרכשים בה ימשיכו ללוות את המשתתפים בחיי היומיום ובמסע שלהם לקראת אהבה וזוגיות.
       </p>
-    </div>
-  </section>
-
-  <!-- TOPICS -->
-  <section class="topics">
-    <div class="container">
-      <h2 class="section-title reveal" style="text-align: center;">הנושאים שנחקור</h2>
-      <div class="topics-list">
-        <article class="topic reveal">
-          <span class="topic-mark"></span>
-          <h3>זוגיות כבית ספר לאהבה</h3>
-          <p>מהי אהבה — ומה היא איננה? מהי זוגיות — ומה היא איננה?</p>
-          <p>נבחן את הרעיון שזוגיות איננה יעד אלא <strong>דרך משותפת של צמיחה והתפתחות</strong>. נדבר על בניית גשר בין שני עולמות, על ה"קילומטראז'" שיש לעבור יחד, ועל האפשרות לראות בזוגיות בית ספר לאהבה, להתפתחות וללמידה.</p>
-        </article>
-
-        <article class="topic reveal">
-          <span class="topic-mark"></span>
-          <h3>קבלה ונתינה בזוגיות</h3>
-          <p>מאיזה מקום פנימי אנחנו מגיעים לקשר? האם אנחנו מחפשים מישהו שימלא חוסר או באים ממקום של אחריות, בשלות ויכולת לתת ולקבל?</p>
-          <p>נחקור את הדינמיקה שבין נתינה לקבלה ונכיר עקרונות רוחניים וחוקים אנרגטיים המשפיעים על מערכות יחסים:</p>
-          <ul>
-            <li>חוק הזריעה והקצירה</li>
-            <li>חוק "דומה מושך דומה"</li>
-            <li>הקשר בין העולם הפנימי שלנו לבין מערכות היחסים שאנו מושכים לחיינו</li>
-          </ul>
-          <p>נלמד כיצד לעבוד עם חוקים אלו באופן מעשי, כדי ליצור שינוי אמיתי בתוכנו ובמציאות שאנו מבקשים ליצור.</p>
-        </article>
-
-        <article class="topic reveal">
-          <span class="topic-mark"></span>
-          <h3>חכמה הדרך מן ההולכים בה</h3>
-          <p>הדרך עצמה היא המורה. נלמד כיצד להתייחס לכל קשר, לכל מפגש ולכל אכזבה <strong>כהזדמנות ללמידה, להתפתחות ולדיוק פנימי</strong>.</p>
-          <p>נבחן את היכולת לצעוד קודם כל כחברים ולא רק כבני זוג, להקשיב למה שהחיים מלמדים אותנו דרך מערכות היחסים שלנו ולפתח אמון בדרך גם כאשר התמונה עדיין אינה שלמה.</p>
-          <p>נעסוק ביצירת תמונת חזון של הזוגיות המיטיבה שאליה אנו מבקשים לצמוח — לא מתוך פנטזיה, אלא מתוך בירור עמוק של הערכים, האיכויות והחיבור שאנו מבקשים ליצור בחיינו.</p>
-        </article>
-
-        <article class="topic reveal">
-          <span class="topic-mark"></span>
-          <h3>אמת ותקשורת</h3>
-          <p>כיצד מדברים — כך שניתן יהיה באמת להקשיב?</p>
-          <p>היכרות עם עקרונות <strong>התקשורת המקרבת (NVC)</strong>: דיבור מתוך רגשות וצרכים, הקשבה ללא האשמה וביקורת, יצירת קרבה דרך כנות, פגיעוּת ואותנטיות.</p>
-          <p>בנוסף, נתרגל התבוננות במחשבות ובסיפורים שאנו מספרים לעצמנו בהשראת עבודתה של <strong>Byron Katie</strong>.</p>
-        </article>
-      </div>
     </div>
   </section>
 
@@ -973,6 +1022,73 @@
     </div>
   </section>
 
+  <!-- TESTIMONIALS -->
+  <section class="testimonials">
+    <div class="container">
+      <h2 class="section-title reveal" style="text-align: center;">מה מספרים משתתפים</h2>
+      <p class="testimonials-lead reveal">
+        הסדנה <strong>"הדרך לאהבה"</strong> יוצאת לדרך לראשונה.
+        בינתיים, מוזמנות ומוזמנים להכיר חוויות של משתתפים בסדנה האחרונה —
+      </p>
+      <p class="testimonials-sublead reveal">סדנת "הוויה מתגלה"</p>
+
+      <div class="quotes-grid">
+        <figure class="quote-card reveal">
+          <blockquote class="quote-text">הסדנה הייתה בשבילי משנה חיים.</blockquote>
+          <figcaption class="quote-attr">— משתתפ/ת, סדנת הוויה מתגלה</figcaption>
+        </figure>
+        <figure class="quote-card reveal">
+          <blockquote class="quote-text">יצאתי מהמפגש האחרון כשאני אוהב את עצמי.</blockquote>
+          <figcaption class="quote-attr">— משתתפ/ת, סדנת הוויה מתגלה</figcaption>
+        </figure>
+        <figure class="quote-card reveal">
+          <blockquote class="quote-text">התחלתי בתחושה שאני לא ראוי, ועברתי תהליך עמוק שמשפיע עליי עד היום.</blockquote>
+          <figcaption class="quote-attr">— משתתפ/ת, סדנת הוויה מתגלה</figcaption>
+        </figure>
+        <figure class="quote-card reveal">
+          <blockquote class="quote-text">סוף סוף למדתי לנשום.</blockquote>
+          <figcaption class="quote-attr">— משתתפ/ת, סדנת הוויה מתגלה</figcaption>
+        </figure>
+        <figure class="quote-card reveal">
+          <blockquote class="quote-text">דרך ה־TRE למדתי להקשיב לגוף שלי ולסמוך עליו.</blockquote>
+          <figcaption class="quote-attr">— משתתפ/ת, סדנת הוויה מתגלה</figcaption>
+        </figure>
+        <figure class="quote-card reveal">
+          <blockquote class="quote-text">יצרת מקום שאפשר פשוט להיות בו. בלי מסכות, בלי להוכיח כלום.</blockquote>
+          <figcaption class="quote-attr">— משתתפ/ת, סדנת הוויה מתגלה</figcaption>
+        </figure>
+        <figure class="quote-card reveal">
+          <blockquote class="quote-text">פגשתי אנשים מדהימים, והלב פשוט נפתח.</blockquote>
+          <figcaption class="quote-attr">— משתתפ/ת, סדנת הוויה מתגלה</figcaption>
+        </figure>
+        <figure class="quote-card reveal">
+          <blockquote class="quote-text">לא ציפיתי שתהליך כל כך משמעותי יכול לקרות בארבעה מפגשים.</blockquote>
+          <figcaption class="quote-attr">— משתתפ/ת, סדנת הוויה מתגלה</figcaption>
+        </figure>
+        <figure class="quote-card reveal">
+          <blockquote class="quote-text">שמחה מאוד שנתתי לעצמי את המתנה הזאת.</blockquote>
+          <figcaption class="quote-attr">— משתתפ/ת, סדנת הוויה מתגלה</figcaption>
+        </figure>
+        <figure class="quote-card reveal">
+          <blockquote class="quote-text">פדית מביאה איתה חום אנושי, אהבה אמיתית לאנשים ושפע של כלים עוצמתיים.</blockquote>
+          <figcaption class="quote-attr">— משתתפ/ת, סדנת הוויה מתגלה</figcaption>
+        </figure>
+        <figure class="quote-card reveal">
+          <blockquote class="quote-text">רגישות גבוהה, נוכחות מלאה ושליטה מרשימה בתהליך.</blockquote>
+          <figcaption class="quote-attr">— משתתפ/ת, סדנת הוויה מתגלה</figcaption>
+        </figure>
+        <figure class="quote-card reveal">
+          <blockquote class="quote-text">זכיתי לעבור את המסע הזה. ממליצה בחום.</blockquote>
+          <figcaption class="quote-attr">— משתתפ/ת, סדנת הוויה מתגלה</figcaption>
+        </figure>
+      </div>
+
+      <p class="testimonials-more reveal">
+        <a href="testimonials.html">לקריאת ההמלצות המלאות</a>
+      </p>
+    </div>
+  </section>
+
   <!-- INSTRUCTOR -->
   <section class="instructor">
     <div class="container">
@@ -996,6 +1112,7 @@
             <li>קבלה</li>
           </ul>
           <p>מלווה תהליכים אישיים וקבוצתיים. מייסדת <strong>"סטודיו לנשום"</strong> — קליניקה פרטית בקריית אונו.</p>
+          <p><a class="layer-link" href="https://padit.my.canva.site/dafby4jauoc" target="_blank" rel="noopener">כרטיס ביקור</a></p>
         </div>
       </div>
     </div>
