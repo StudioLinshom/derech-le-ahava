@@ -232,15 +232,17 @@
       object-fit: cover;
       display: block;
     }
-    .atmo-figure--hero {
-      max-width: 480px;
-      margin: 0 auto 50px;
+    .atmo-figure--logo {
+      max-width: 260px;
+      margin: 20px auto 40px;
+      aspect-ratio: 1006 / 470;
+      overflow: hidden;
     }
-    .atmo-figure--hero .atmo-img {
-      transform: rotate(-2deg);
-      border-radius: 16px;
-      aspect-ratio: 1600 / 738;
-      box-shadow: 8px 8px 0 var(--coral);
+    .atmo-figure--logo img {
+      width: 100%;
+      height: auto;
+      display: block;
+      filter: url(#logo-cream);
     }
     .atmo-figure--portrait {
       max-width: 360px;
@@ -874,6 +876,15 @@
 </head>
 <body>
 
+  <!-- SVG filter: turn white background transparent, colorize illustration cream -->
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <defs>
+      <filter id="logo-cream">
+        <feColorMatrix type="matrix" values="0 0 0 0 0.973 0 0 0 0 0.945 0 0 0 0 0.855 -1 -1 -1 3 0"/>
+      </filter>
+    </defs>
+  </svg>
+
   <!-- HERO -->
   <section class="hero">
     <div class="hero-shape-a" aria-hidden="true"></div>
@@ -889,8 +900,8 @@
         <h2 class="hero-hook-big">רצית אהבה. פתחת את הלב. האמנת שהפעם הדרך תהיה אחרת.<br>אבל שוב עלו אותם הדפוסים...<br><br>הדרך לאהבה אינה מתחילה במפגש עם האדם האחר, היא מתחילה במפגש עם עצמך.</h2>
       </div>
       <!-- Padit photo -->
-      <figure class="atmo-figure atmo-figure--hero reveal">
-        <img class="atmo-img" src="altar.jpg" alt="אלתר בסטודיו — פעמון טיבטי, נר וקלפים" loading="lazy" />
+      <figure class="atmo-figure atmo-figure--logo reveal">
+        <img src="studio-logo.png" alt="סטודיו לנשום" loading="lazy" />
       </figure>
       <!-- Pain points -->
       <div class="hero-intro reveal">
@@ -957,11 +968,6 @@
     </div>
   </section>
 
-  <!-- STUDIO PHOTO -->
-  <figure class="atmo-figure atmo-figure--wide reveal" style="padding: 0 24px;">
-    <img class="atmo-img" src="studio.jpg" alt="הסטודיו מוכן לסדנה — כריות על רצפת עץ" loading="lazy" />
-  </figure>
-
   <!-- AUDIENCE -->
   <section class="audience">
     <div class="container">
@@ -980,11 +986,6 @@
       </ul>
     </div>
   </section>
-
-  <!-- CARDS OF LOVE PHOTO -->
-  <figure class="atmo-figure atmo-figure--cards reveal" style="--rot: 1.5deg; padding: 0 24px;">
-    <img class="atmo-img" src="cards-of-love.jpg" alt="קלפי אהבה" loading="lazy" />
-  </figure>
 
   <!-- TOOLS (Methodology) -->
   <section class="tools">
