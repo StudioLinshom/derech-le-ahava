@@ -167,7 +167,7 @@
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      padding-bottom: 140px;
+      padding-bottom: 0;
     }
     @media (max-width: 600px) {
       .hero-screen-one { min-height: calc(100svh - 120px); }
@@ -206,7 +206,7 @@
 
     .hero-intro {
       max-width: 680px;
-      margin: 0 auto 60px;
+      margin: 40px auto 60px;
       text-align: center;
     }
     .hero-intro p {
@@ -233,8 +233,8 @@
       display: block;
     }
     .atmo-figure--logo {
-      max-width: 260px;
-      margin: 20px auto 40px;
+      max-width: 400px;
+      margin: 40px auto 0;
       aspect-ratio: 1006 / 470;
       overflow: hidden;
     }
@@ -880,7 +880,7 @@
   <svg width="0" height="0" style="position:absolute" aria-hidden="true">
     <defs>
       <filter id="logo-cream">
-        <feColorMatrix type="matrix" values="0 0 0 0 0.973 0 0 0 0 0.945 0 0 0 0 0.855 -1 -1 -1 3 0"/>
+        <feColorMatrix type="matrix" values="0 0 0 0 0.937 0 0 0 0 0.435 0 0 0 0 0.325 -1 -1 -1 3 0"/>
       </filter>
     </defs>
   </svg>
@@ -898,11 +898,11 @@
           <path d="M80,16 C60,16 55,84 80,84 C105,84 100,16 80,16 Z" fill="var(--mustard)"/>
         </svg>
         <h2 class="hero-hook-big">רצית אהבה. פתחת את הלב. האמנת שהפעם הדרך תהיה אחרת.<br>אבל שוב עלו אותם הדפוסים...<br><br>הדרך לאהבה אינה מתחילה במפגש עם האדם האחר, היא מתחילה במפגש עם עצמך.</h2>
+        <!-- Studio logo illustration -->
+        <figure class="atmo-figure atmo-figure--logo reveal">
+          <img src="studio-logo.png" alt="סטודיו לנשום" loading="lazy" />
+        </figure>
       </div>
-      <!-- Padit photo -->
-      <figure class="atmo-figure atmo-figure--logo reveal">
-        <img src="studio-logo.png" alt="סטודיו לנשום" loading="lazy" />
-      </figure>
       <!-- Pain points -->
       <div class="hero-intro reveal">
         <p>
