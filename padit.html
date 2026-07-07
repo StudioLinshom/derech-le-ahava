@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="description" content="פדית ציבייר — מלווה תהליכי התפתחות והחלמה, מייסדת סטודיו לנשום, קריית אונו." />
-  <title>פדית ציבייר — סטודיו לנשום</title>
+  <title>פדית ציבייר — כרטיס ביקור</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Frank+Ruhl+Libre:wght@500;700;900&family=Heebo:wght@300;400;500;700&display=swap" rel="stylesheet" />
@@ -16,529 +16,185 @@
       --ink-soft: #5C5648;
       --ink-mute: #8A8371;
       --navy: #1F3A5C;
-      --navy-deep: #122840;
       --coral: #EF6F53;
-      --coral-deep: #D3543A;
       --mustard: #E8A93A;
-      --mustard-deep: #C68A22;
-      --line: rgba(27, 46, 68, 0.15);
-      --line-strong: rgba(27, 46, 68, 0.3);
-      --radius: 16px;
-      --radius-lg: 26px;
       --shadow-sm: 4px 4px 0 var(--ink);
-      --shadow-md: 6px 6px 0 var(--ink);
-      --shadow-lg: 8px 8px 0 var(--ink);
     }
 
     * { box-sizing: border-box; }
-    html { scroll-behavior: smooth; }
 
     body {
       margin: 0;
-      font-family: 'Heebo', system-ui, -apple-system, sans-serif;
+      font-family: 'Heebo', system-ui, sans-serif;
       font-weight: 400;
       color: var(--ink);
       background: var(--bg);
-      line-height: 1.75;
+      line-height: 1.8;
       font-size: 17px;
       -webkit-font-smoothing: antialiased;
-      overflow-x: hidden;
     }
 
     ::selection { background: var(--coral); color: var(--bg-card); }
 
-    h1, h2, h3 {
-      font-family: 'Frank Ruhl Libre', 'Heebo', serif;
-      font-weight: 700;
-      color: var(--ink);
-      letter-spacing: -0.01em;
-      line-height: 1.25;
-      margin: 0 0 0.5em;
+    .page {
+      max-width: 700px;
+      margin: 0 auto;
+      padding: 60px 28px 80px;
     }
-    p { margin: 0 0 1em; }
-    a { color: var(--navy-deep); text-decoration: none; border-bottom: 2px solid transparent; transition: border-color 0.2s, color 0.2s; }
-    a:hover { border-bottom-color: var(--coral); }
+    @media (max-width: 600px) { .page { padding: 40px 20px 60px; } }
 
-    .container { max-width: 880px; margin-inline: auto; padding-inline: 24px; }
-
-    /* ============ HEADER ============ */
-    .page-header {
-      position: relative;
-      padding: 90px 0 150px;
-      text-align: center;
-      overflow: hidden;
-      background: var(--navy);
-    }
-    .header-shape-a {
-      position: absolute; border-radius: 50%;
-      width: 300px; height: 300px;
-      background: var(--mustard);
-      bottom: -140px; inset-inline-end: -100px;
-      pointer-events: none;
-    }
-    .header-shape-b {
-      position: absolute; border-radius: 50%;
-      width: 170px; height: 170px;
-      background: var(--coral);
-      top: -70px; inset-inline-start: -70px;
-      opacity: 0.9;
-      pointer-events: none;
-    }
-    .page-header::after {
-      content: '';
-      position: absolute; left: 0; right: 0; bottom: -1px; height: 90px;
-      background: var(--bg);
-      clip-path: polygon(0 100%, 100% 45%, 100% 100%);
-    }
-    .page-header .container { position: relative; z-index: 1; }
-
-    .emblem {
-      display: block;
-      width: 100px;
-      height: auto;
-      margin: 0 auto 28px;
-    }
-
-    .page-header h1 {
-      font-size: clamp(36px, 6vw, 56px);
-      margin-bottom: 14px;
-      color: var(--bg-card);
-    }
-
-    .header-tagline {
-      font-size: clamp(17px, 2.2vw, 21px);
-      color: rgba(247, 240, 225, 0.8);
-      font-weight: 300;
-      max-width: 600px;
-      margin: 0 auto 28px;
-      line-height: 1.7;
-    }
-
-    .header-cta-row {
-      display: flex; flex-wrap: wrap; gap: 14px;
-      justify-content: center;
-    }
-    .header-cta {
-      display: inline-flex; align-items: center; gap: 8px;
-      padding: 14px 28px;
-      border: 3px solid var(--ink); border-radius: 100px;
-      font-family: inherit; font-size: 15px; font-weight: 700;
-      box-shadow: var(--shadow-sm);
-      transition: transform 0.15s, box-shadow 0.15s;
-      letter-spacing: 0.02em;
-    }
-    .header-cta:hover {
-      transform: translate(4px, 4px);
-      box-shadow: 0 0 0 var(--ink);
-      border-bottom-color: transparent;
-    }
-    .header-cta--wa { background: var(--coral); color: var(--bg-card); }
-    .header-cta--tel { background: var(--bg-card); color: var(--navy-deep); }
-    .header-cta svg { width: 20px; height: 20px; fill: currentColor; flex-shrink: 0; }
-
-    /* ============ SECTIONS ============ */
-    section { padding: 70px 0; }
-    @media (max-width: 600px) { section { padding: 50px 0; } }
-
-    .section-title {
-      font-size: clamp(28px, 4vw, 40px);
-      margin-bottom: 20px;
-      text-align: center;
-    }
-    .title-mark--mustard { background: linear-gradient(transparent 60%, var(--mustard) 60%); display: inline-block; padding: 0 6px; }
-
-    /* ============ ABOUT ============ */
-    .about {
-      position: relative;
-      background: var(--coral);
-      color: var(--bg-card);
-      overflow: hidden;
-    }
-    .about::after {
-      content: '';
-      position: absolute; left: 0; right: 0; bottom: -1px; height: 80px;
-      background: var(--bg);
-      clip-path: polygon(0 100%, 100% 30%, 100% 100%);
-    }
-    .about-inner {
-      max-width: 680px; margin-inline: auto;
-      text-align: center;
-    }
-    .about-inner p {
-      font-size: clamp(17px, 2vw, 20px);
-      line-height: 1.85;
-      font-weight: 300;
-    }
-    .about-inner strong { font-weight: 600; color: var(--bg-card); }
-
-    /* ============ INSTRUCTOR PHOTO + BIO ============ */
-    .bio {
-      background: var(--bg);
-    }
-    .bio-wrap {
-      max-width: 720px; margin-inline: auto;
-      display: grid; gap: 40px; align-items: start;
-      grid-template-columns: 180px 1fr;
-    }
-    @media (max-width: 640px) {
-      .bio-wrap { grid-template-columns: 1fr; justify-items: center; text-align: center; }
-    }
-    .bio-avatar {
-      width: 180px; height: 180px; border-radius: 14px;
+    .photo {
+      width: 180px; height: 180px;
+      border-radius: 14px;
       border: 4px solid var(--ink);
       box-shadow: 7px 7px 0 var(--coral);
       transform: rotate(-3deg);
       padding: 6px;
       background: var(--bg-card);
-      flex-shrink: 0;
+      margin: 0 auto 36px;
+      display: block;
     }
-    .bio-avatar img {
+    .photo img {
       width: 100%; height: 100%;
       border-radius: 8px;
       object-fit: cover;
       display: block;
     }
-    .bio-text p { color: var(--ink-soft); font-size: 16px; line-height: 1.85; margin-bottom: 14px; }
-    .bio-text p strong { color: var(--ink); font-weight: 500; }
-    .bio-personal { color: var(--ink-mute) !important; font-size: 15px !important; font-style: italic; }
 
-    /* ============ TECHNIQUES ============ */
-    .techniques { background: var(--bg); }
-    .tech-grid {
-      display: flex; flex-wrap: wrap; gap: 12px;
-      justify-content: center;
-      max-width: 640px; margin: 36px auto 0;
-    }
-    .tech-pill {
-      display: inline-block;
-      padding: 10px 20px;
-      border-radius: 100px;
-      border: 2.5px solid var(--ink);
-      font-size: 15px; font-weight: 600;
-      transition: box-shadow 0.2s, transform 0.2s;
-    }
-    .tech-pill:hover { box-shadow: 3px 3px 0 var(--ink); transform: translate(-2px, -2px); }
-    .tech-pill:nth-child(3n+1) { background: var(--coral); color: var(--bg-card); }
-    .tech-pill:nth-child(3n+2) { background: var(--mustard); color: var(--navy-deep); }
-    .tech-pill:nth-child(3n+3) { background: var(--bg-card); color: var(--navy-deep); }
-
-    /* ============ STUDIO ============ */
-    .studio-section { background: var(--bg); }
-    .studio-card {
-      max-width: 420px; margin: 0 auto;
-      background: rgba(232, 169, 58, 0.15);
-      border: 3px solid var(--navy);
-      border-radius: var(--radius-lg);
-      padding: 40px 36px;
-      box-shadow: var(--shadow-md);
+    h1 {
+      font-family: 'Frank Ruhl Libre', serif;
+      font-weight: 900;
+      font-size: clamp(36px, 6vw, 52px);
       text-align: center;
-      transform: rotate(1.5deg);
-      transition: box-shadow 0.2s;
+      margin: 0 0 8px;
+      color: var(--ink);
     }
-    .studio-card:hover { box-shadow: 9px 9px 0 var(--ink); }
-    .studio-card h2 {
-      font-size: 32px; margin-bottom: 8px;
-      color: var(--navy);
-    }
-    .studio-card p {
-      color: var(--ink-soft); font-size: 16px;
-      margin: 0;
-    }
-    @media (max-width: 600px) { .studio-card { padding: 32px 26px; } }
 
-    /* ============ CERTIFICATIONS ============ */
-    .certs { background: var(--bg); }
-    .certs-toggle {
-      display: block;
-      margin: 0 auto 28px;
-      background: var(--navy); color: var(--bg-card);
-      border: 2px solid var(--ink); border-radius: 100px;
-      padding: 12px 28px;
-      font-family: inherit; font-size: 15px; font-weight: 700;
-      cursor: pointer;
-      box-shadow: var(--shadow-sm);
-      transition: transform 0.15s, box-shadow 0.15s;
+    .contact {
+      text-align: center;
+      margin-bottom: 36px;
     }
-    .certs-toggle:hover { transform: translate(3px, 3px); box-shadow: 0 0 0 var(--ink); }
+    .contact a {
+      display: inline-flex; align-items: center; gap: 8px;
+      color: var(--navy);
+      font-size: 20px; font-weight: 600;
+      text-decoration: none;
+      border-bottom: 2px solid var(--coral);
+      padding-bottom: 2px;
+    }
+
+    .content p {
+      color: var(--ink-soft);
+      font-size: 17px;
+      line-height: 1.85;
+      margin: 0 0 16px;
+    }
+    .content strong { color: var(--ink); font-weight: 600; }
+
+    .section-label {
+      font-family: 'Frank Ruhl Libre', serif;
+      font-weight: 700;
+      font-size: 22px;
+      color: var(--ink);
+      margin: 40px 0 16px;
+      padding-bottom: 8px;
+      border-bottom: 3px solid var(--mustard);
+      display: inline-block;
+    }
+
     .certs-list {
-      list-style: none; padding: 0;
-      max-width: 720px; margin: 0 auto;
-      display: grid; gap: 10px;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      list-style: none;
+      padding: 0; margin: 0;
     }
-    .certs-list.collapsed { display: none; }
     .certs-list li {
-      padding: 14px 18px;
-      background: var(--bg-card);
-      border: 2px solid var(--line-strong);
-      border-radius: 12px;
-      font-size: 15px; line-height: 1.6;
+      padding: 8px 0;
+      border-bottom: 1px solid rgba(27, 46, 68, 0.1);
+      font-size: 16px;
+      line-height: 1.7;
       color: var(--ink-soft);
     }
-    .certs-list li strong {
-      display: block;
-      color: var(--ink); font-weight: 600;
-      font-size: 15.5px;
-      margin-bottom: 2px;
-    }
-    .certs-academic {
-      text-align: center; max-width: 600px; margin: 32px auto 0;
-      color: var(--ink-mute); font-size: 15px; line-height: 1.75;
-    }
-    .certs-academic strong { color: var(--ink-soft); font-weight: 600; }
+    .certs-list li:last-child { border-bottom: none; }
 
-    /* ============ BACK CTA ============ */
-    .back-cta {
-      text-align: center;
-      padding: 20px 0 0;
+    .academic {
+      margin-top: 32px;
+      color: var(--ink-soft);
+      font-size: 16px;
+      line-height: 1.8;
     }
-    .back-cta a {
+
+    .back-link {
+      display: block;
+      text-align: center;
+      margin-top: 50px;
+    }
+    .back-link a {
       display: inline-flex; align-items: center; gap: 8px;
-      padding: 16px 36px;
+      padding: 14px 32px;
       background: var(--coral); color: var(--bg-card);
       border: 3px solid var(--ink); border-radius: 100px;
       font-family: inherit; font-size: 16px; font-weight: 700;
+      text-decoration: none;
       box-shadow: var(--shadow-sm);
       transition: transform 0.15s, box-shadow 0.15s;
-      letter-spacing: 0.02em;
     }
-    .back-cta a:hover {
+    .back-link a:hover {
       transform: translate(4px, 4px);
       box-shadow: 0 0 0 var(--ink);
     }
-    .back-cta a::after { content: '\2190'; font-size: 16px; }
-
-    /* ============ FOOTER ============ */
-    footer {
-      background: var(--navy);
-      color: rgba(247, 240, 225, 0.78);
-      padding: 48px 0 36px;
-      text-align: center;
-    }
-    footer h3 { color: var(--bg-card); font-size: 22px; margin-bottom: 12px; }
-    footer p { color: rgba(247, 240, 225, 0.6); font-size: 15px; margin-bottom: 8px; }
-    footer a { color: var(--mustard); }
-    footer a:hover { border-bottom-color: var(--mustard); }
-    .footer-divider { width: 50px; height: 3px; background: var(--coral); margin: 20px auto; border-radius: 2px; }
-
-    /* ============ ANIMATIONS ============ */
-    .reveal { opacity: 0; transform: translateY(20px) rotate(var(--rot, 0deg)); transition: opacity 0.7s ease, transform 0.7s ease; }
-    .reveal.in { opacity: 1; transform: rotate(var(--rot, 0deg)); }
-    @media (prefers-reduced-motion: reduce) {
-      .reveal { opacity: 1; transform: rotate(var(--rot, 0deg)); transition: none; }
-      html { scroll-behavior: auto; }
-    }
-
-    @media (max-width: 600px) {
-      body { font-size: 16px; }
-      .page-header { padding: 70px 0 120px; }
-    }
+    .back-link a::after { content: '\2190'; font-size: 16px; }
   </style>
 </head>
 <body>
 
-  <!-- HEADER -->
-  <header class="page-header">
-    <div class="header-shape-a" aria-hidden="true"></div>
-    <div class="header-shape-b" aria-hidden="true"></div>
-    <div class="container">
-      <svg class="emblem" viewBox="0 0 160 100" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-        <circle cx="60" cy="50" r="40" fill="var(--navy)" stroke="var(--ink)" stroke-width="2"/>
-        <circle cx="100" cy="50" r="40" fill="var(--coral)" stroke="var(--ink)" stroke-width="2"/>
-        <path d="M80,16 C60,16 55,84 80,84 C105,84 100,16 80,16 Z" fill="var(--mustard)"/>
-      </svg>
-      <h1>פדית ציבייר</h1>
-      <p class="header-tagline">מיטיבת לכת בתחומי גוף-רוח-נפש</p>
-      <div class="header-cta-row">
-        <a class="header-cta header-cta--wa" href="https://wa.me/972548111353" target="_blank" rel="noopener">
-          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.626.712.226 1.36.194 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
-          </svg>
-          וואטסאפ
-        </a>
-        <a class="header-cta header-cta--tel" href="tel:+972548111353">
-          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-            <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/>
-          </svg>
-          <bdi dir="ltr">054-8111353</bdi>
-        </a>
-      </div>
+  <div class="page">
+    <div class="photo">
+      <img src="pedit.jpg" alt="פדית ציבייר" />
     </div>
-  </header>
 
-  <!-- ABOUT -->
-  <section class="about">
-    <div class="container">
-      <div class="about-inner reveal">
-        <p><strong>מלווה תהליכי התפתחות ותהליכי החלמה</strong> מטראומה, דיכאון וחרדה.</p>
-        <p>מורה ליוגה ומנחת קבוצות. מלווה תהליכים אישיים וקבוצתיים.</p>
-      </div>
+    <h1>פדית ציבייר</h1>
+
+    <div class="contact">
+      <a href="https://wa.me/972548111353" target="_blank" rel="noopener">ליצירת קשר <bdi dir="ltr">054-8111353</bdi></a>
     </div>
-  </section>
 
-  <!-- BIO -->
-  <section class="bio">
-    <div class="container">
-      <div class="bio-wrap reveal">
-        <div class="bio-avatar" style="--rot: 0deg;">
-          <img src="pedit.jpg" alt="פדית ציבייר" />
-        </div>
-        <div class="bio-text">
-          <p><strong>פדית</strong> עובדת עם גישות גוף-רוח-נפש, שילוב ייחודי של עבודה ישירה עם מערכת העצבים והגוף לצד עבודה תודעתית והתבוננותית.</p>
-          <p>מייסדת <strong>"סטודיו לנשום"</strong> — קליניקה פרטית בקריית אונו.</p>
-          <p class="bio-personal">נשואה לאלון ואמא ליואב ומעיין.</p>
-        </div>
-      </div>
-    </div>
-  </section>
+    <div class="content">
+      <p>נשואה לאלון ואמא ליואב ומעיין. מיטיבת לכת בתחומי גוף-רוח-נפש.</p>
 
-  <!-- TECHNIQUES -->
-  <section class="techniques">
-    <div class="container">
-      <h2 class="section-title reveal"><span class="title-mark--mustard">טכניקות ושיטות</span></h2>
-      <div class="tech-grid reveal">
-        <span class="tech-pill">FOBP — נשימה ופוקוסינג</span>
-        <span class="tech-pill">SE — החוויה הסומאטית</span>
-        <span class="tech-pill">TRE — רעד ספונטני</span>
-        <span class="tech-pill">מיינדפולנס</span>
-        <span class="tech-pill">EMDR</span>
-        <span class="tech-pill">ריברסינג</span>
-        <span class="tech-pill">תהליכים אישיים</span>
-        <span class="tech-pill">הנחיית קבוצות</span>
-      </div>
-    </div>
-  </section>
+      <p>מלווה תהליכי התפתחות ותהליכי החלמה מטראומה, דיכאון וחרדה. מורה ליוגה.</p>
 
-  <!-- STUDIO -->
-  <section class="studio-section">
-    <div class="container">
-      <div class="studio-card reveal" style="--rot: 1.5deg;">
-        <h2>סטודיו לנשום</h2>
-        <p>קליניקה פרטית &middot; קריית אונו</p>
-      </div>
-    </div>
-  </section>
+      <p><strong>טכניקות טיפול</strong> - פסיכותרפיה מבוססת נשימה ופוקוסינג (FOBP), החוויה הסומאטית (SE), עבודה עם רעד ספונטני (TRE), מיינדפולנס, EMDR, ריברסינג ועוד. מלווה תהליכים אישיים וקבוצתיים.</p>
 
-  <!-- CERTIFICATIONS -->
-  <section class="certs">
-    <div class="container">
-      <h2 class="section-title reveal">רקע והכשרות</h2>
-      <button class="certs-toggle reveal" id="certsToggle" type="button" aria-expanded="false">לרשימה המלאה של ההסמכות</button>
-      <ul class="certs-list collapsed reveal" id="certsList">
-        <li>
-          <strong>TRE — Tension &amp; Trauma Releasing Exercises</strong>
-          Steve Haines, TRE College
-        </li>
-        <li>
-          <strong>TAE — Thinking at the Edge</strong>
-          נימי פלד, מכון פוקוסינג ישראלי
-        </li>
-        <li>
-          <strong>התרמיל הרגשי — מודל טיפולי ייחודי לילדים</strong>
-          ד"ר שרית טייכמן כנרתי
-        </li>
-        <li>
-          <strong>IEMT / EMDR / EMI — שיטות עיבוד טראומה</strong>
-          Andrew T. Austin, Karl Smith
-        </li>
-        <li>
-          <strong>יחסי הקשרות — Attachment Theory</strong>
-          ד"ר עמוס צולר
-        </li>
-        <li>
-          <strong>תיאוריה פולי-וגאלית</strong>
-          דב בר (דב יוסף ברנר)
-        </li>
-        <li>
-          <strong>יחסי מטפל-מטופל</strong>
-          ד"ר אורי בר-יוסף
-        </li>
-        <li>
-          <strong>SE — Somatic Experiencing</strong>
-          SE Trauma Institute
-        </li>
-        <li>
-          <strong>פוקוסינג — Focusing</strong>
-          מכון פוקוסינג ישראלי
-        </li>
-        <li>
-          <strong>FOBP — Focusing Oriented Breath Psychotherapy</strong>
-          דניאלה ארנהיים-צגולה (לומדת)
-        </li>
-        <li>
-          <strong>נשימה הולוטרופית — Holotropic Breathwork</strong>
-          GTT / Stanislav Grof
-        </li>
-        <li>
-          <strong>מיינדפולנס טיפולי</strong>
-          הלל רז-ברק, בוגרת תוכנית MBSR
-        </li>
-        <li>
-          <strong>יוגה — אשטנגה</strong>
-          David Swenson, Danny Paradise
-        </li>
-        <li>
-          <strong>ריברסינג — Rebirthing Breathwork</strong>
-          Leonard Orr
-        </li>
-        <li>
-          <strong>הקשבה קוונטית</strong>
-          פרנק קינסלו
-        </li>
-        <li>
-          <strong>תטא הילינג — Theta Healing</strong>
-          ThetaHealing Institute
-        </li>
-        <li>
-          <strong>יהדות אוניברסלית</strong>
-          ביכורי המעיין
-        </li>
+      <p>מייסדת <strong>"סטודיו לנשום"</strong> - קליניקה פרטית בקרית אונו.</p>
+
+      <div class="section-label">לימודים והסמכות</div>
+
+      <ul class="certs-list">
+        <li>תרגילי שחרור מתח וטראומה - TRE (אניה בלום, TRE ישראל)</li>
+        <li>חשיבה בקצה הידיעה - TAE (ברוך ברנר ודנה גניהר, מכון על שפת היש)</li>
+        <li>התרמיל הרגשי (ויויאן דיטמר)</li>
+        <li>אינטגרציה של שיטות בילטארליות: IEMT, EMDR, EMI (רונית חיימוב ודב מידן, המרכז ללימודי פסיכותרפיה אינטגרטיבית)</li>
+        <li>יחסי הקשרות (ד"ר נירית אברהם)</li>
+        <li>התאוריה הפולי-וגאלית (גבי מינצברג)</li>
+        <li>יחסי מטפל - מטופל (יעל שביט, בית ספר פשטות)</li>
+        <li>החוויה הסומאטית - SE (ג'ודיתה בן דוד, בית ספר פשטות)</li>
+        <li>פוקוסינג (חן עין הבר, בית ספר פשטות)</li>
+        <li>פסיכותרפיה מבוססת נשימה ופוקוסינג - F.O.B.P (יניב קקון וחן עין הבר, בית ספר פשטות)</li>
+        <li>נשימה הולוטרופית (יניב קקון, בית ספר פשטות)</li>
+        <li>מיינדפולנס ככלי טיפולי (ד"ר גליה תנאי, מרכז גוף-נפש רמת השרון)</li>
+        <li>מורה ליוגה אשטנגה (שתי הסמכות: הסמכה ראשונה אצל רינת ריינה, הסמכה שניה אצל שני שרון)</li>
+        <li>טיפול באמצעות ריברסינג ונשימה דינמית אינטגרטיבית (רישי וסוקי, המרכז לנשימה ומדיטציה ברמת אפעל)</li>
+        <li>הקשבה קוונטית (אור קורן)</li>
+        <li>מטפלת תטא הילינג (מגוון קורסים והסמכות אצל מגוון מורים: נירוואן הלב, יפעת קדם, חגית יהודה)</li>
+        <li>יהדות אוניברסאלית, קבלה והתמרה (יחיאל גריידי)</li>
       </ul>
 
-      <div class="certs-academic reveal">
-        <p><strong>רקע אקדמי:</strong> MBA מנהל עסקים + BA כלכלה ומערכות מידע.</p>
-        <p>לפני ההסבה — כלכלנית, אנליסטית, מנהלת שכר והטבות.</p>
-      </div>
+      <p class="academic">שני תארים אקדמאיים MBA + BA (בתחומי מנהל עסקים, כלכלה ומערכות מידע. לפני ההסבה לתחום הטיפולי עסקתי בתפקידים: כלכלנית, אנליסטית ומנהלת שכר והטבות).</p>
     </div>
-  </section>
 
-  <!-- BACK TO WORKSHOP -->
-  <section style="background: var(--bg); padding: 30px 0 60px;">
-    <div class="container">
-      <div class="back-cta reveal">
-        <a href="index.html">חזרה לדף הסדנה</a>
-      </div>
+    <div class="back-link">
+      <a href="index.html" onclick="if(history.length>1){history.back();return false;}">חזרה לדף הסדנה</a>
     </div>
-  </section>
+  </div>
 
-  <!-- FOOTER -->
-  <footer>
-    <div class="container">
-      <h3>פדית ציבייר</h3>
-      <p>סטודיו לנשום &middot; קריית אונו</p>
-      <div class="footer-divider"></div>
-      <p><a href="https://wa.me/972548111353" target="_blank" rel="noopener"><bdi dir="ltr">054-8111353</bdi></a></p>
-      <p style="margin-top: 14px; font-size: 14px;"><a href="index.html" style="opacity: 0.7;">סדנת הדרך לאהבה</a></p>
-    </div>
-  </footer>
-
-  <script>
-    const io = new IntersectionObserver((entries) => {
-      for (const e of entries) {
-        if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
-      }
-    }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
-    document.querySelectorAll('.reveal').forEach(el => io.observe(el));
-
-    const toggle = document.getElementById('certsToggle');
-    const list = document.getElementById('certsList');
-    toggle.addEventListener('click', () => {
-      const open = !list.classList.contains('collapsed');
-      list.classList.toggle('collapsed');
-      toggle.setAttribute('aria-expanded', String(!open));
-      toggle.textContent = open ? 'לרשימה המלאה של ההסמכות' : 'סגירה';
-      if (!open) list.classList.add('in');
-    });
-  </script>
 </body>
 </html>
