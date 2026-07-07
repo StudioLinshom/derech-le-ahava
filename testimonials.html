@@ -328,6 +328,13 @@
     </div>
   </footer>
 
+  <div class="scroll-arrow" aria-hidden="true">
+    <svg viewBox="0 0 24 24" width="28" height="28"><path d="M12 16l-6-6h12z" fill="currentColor"/></svg>
+  </div>
+
+  <a class="back-float" href="index.html"
+     onclick="if(history.length>1){history.back();return false;}">חזרה לדף הסדנה </a>
+
   <script>
     const io = new IntersectionObserver((entries) => {
       for (const e of entries) {
@@ -354,12 +361,5 @@
       }, { passive: true });
     }
   </script>
-
-  <div class="scroll-arrow" aria-hidden="true">
-    <svg viewBox="0 0 24 24" width="28" height="28"><path d="M12 16l-6-6h12z" fill="currentColor"/></svg>
-  </div>
-
-  <a class="back-float" href="index.html"
-     onclick="if(history.length>1){history.back();return false;}">חזרה לדף הסדנה </a>
 </body>
 </html>

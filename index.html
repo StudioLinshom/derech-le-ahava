@@ -273,22 +273,35 @@
       border-radius: 16px;
     }
     .atmo-figure--studio-small {
-      max-width: 440px;
-      margin: 30px auto;
+      max-width: 720px;
+      margin: 40px auto;
     }
     .atmo-figure--studio-small .atmo-img {
       transform: rotate(-1.2deg);
-      aspect-ratio: 1600 / 738;
       box-shadow: 5px 5px 0 var(--navy);
       border-radius: 14px;
-      object-fit: contain;
+      height: auto;
+      object-fit: initial;
+    }
+    .atmo-figure--logo-closing {
+      max-width: 400px;
+      margin: 40px auto 0;
+      aspect-ratio: 1006 / 540;
+      overflow: hidden;
+      opacity: 0.85;
+    }
+    .atmo-figure--logo-closing img {
+      width: 100%;
+      height: auto;
+      display: block;
+      filter: url(#logo-cream);
     }
     @media (max-width: 600px) {
       .atmo-figure--hero { max-width: 280px; }
       .atmo-figure--portrait { max-width: 260px; }
       .atmo-figure--wide .atmo-img { max-height: 260px; }
       .atmo-figure--cards { max-width: 260px; }
-      .atmo-figure--studio-small { max-width: 280px; }
+      .atmo-figure--studio-small { max-width: 100%; padding: 0 12px; }
     }
 
     /* ============ LAYERS ============ */
@@ -1059,7 +1072,7 @@
   </section>
 
   <!-- STUDIO PHOTO (subtle bridge to pricing) -->
-  <figure class="atmo-figure atmo-figure--studio-small reveal" style="padding: 0 24px;">
+  <figure class="atmo-figure atmo-figure--studio-small reveal">
     <img class="atmo-img" src="studio.jpg" alt="הסטודיו בסביון" loading="lazy" />
   </figure>
 
@@ -1204,7 +1217,7 @@
       <p class="closing-final">
         כשאנו צועדים בדרך האהבה, איננו רק מתקרבים אל האחר – למעשה אנו שבים הביתה, אל עצמנו.
       </p>
-      <figure class="atmo-figure--logo" style="margin: 40px auto 0; opacity: 0.85;">
+      <figure class="atmo-figure--logo-closing">
         <img src="studio-logo.png" alt="" aria-hidden="true" loading="lazy" />
       </figure>
     </div>
@@ -1278,6 +1291,10 @@
   <!-- STICKY CTA -->
   <div class="sticky-cta" id="stickyCta">
     <a href="#form">להרשמה לסדנה</a>
+  </div>
+
+  <div class="scroll-arrow" aria-hidden="true">
+    <svg viewBox="0 0 24 24" width="28" height="28"><path d="M12 16l-6-6h12z" fill="currentColor"/></svg>
   </div>
 
   <script>
@@ -1446,9 +1463,5 @@
       });
     }
   </script>
-
-  <div class="scroll-arrow" aria-hidden="true">
-    <svg viewBox="0 0 24 24" width="28" height="28"><path d="M12 16l-6-6h12z" fill="currentColor"/></svg>
-  </div>
 </body>
 </html>
