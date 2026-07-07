@@ -360,60 +360,6 @@
     .audience-list li:nth-child(2n)::before { background: var(--mustard); }
     .audience-list li:nth-child(3n)::before { background: var(--navy); }
 
-    /* ============ FEATURED QUOTE ============ */
-    .featured-quote-wrap {
-      background: var(--bg);
-      padding: 40px 24px 60px;
-    }
-    .featured-quote {
-      position: relative;
-      max-width: 640px;
-      margin: 0 auto;
-      background: var(--bg-card);
-      border: 3px solid var(--ink);
-      border-radius: 24px;
-      box-shadow: 8px 8px 0 var(--coral);
-      padding: 48px 40px 36px;
-      transform: rotate(-1deg);
-    }
-    .featured-quote::before {
-      content: '\201D';
-      position: absolute;
-      top: -30px; inset-inline-end: 30px;
-      font-family: 'Frank Ruhl Libre', serif;
-      font-size: 120px; line-height: 1;
-      color: var(--coral);
-      background: var(--bg);
-      padding: 0 12px;
-    }
-    .featured-quote p {
-      font-family: 'Frank Ruhl Libre', serif;
-      font-size: clamp(20px, 2.6vw, 26px);
-      line-height: 1.55;
-      color: var(--ink);
-      font-weight: 700;
-      text-align: center;
-      margin: 0 0 20px;
-    }
-    .featured-quote-cta {
-      text-align: center;
-      margin-top: 20px;
-    }
-    .featured-quote-cta a {
-      display: inline-block;
-      font-size: 14px;
-      color: var(--navy-deep);
-      font-weight: 600;
-      border-bottom: 2px solid var(--mustard);
-      padding-bottom: 2px;
-      letter-spacing: 0.02em;
-    }
-    .featured-quote-cta a:hover { color: var(--coral); border-bottom-color: var(--coral); }
-    @media (max-width: 600px) {
-      .featured-quote { padding: 40px 24px 28px; }
-      .featured-quote::before { font-size: 90px; top: -22px; }
-    }
-
     /* ============ TOOLS (Methodology) ============ */
     .tools { background: var(--bg); }
 
@@ -1041,15 +987,10 @@
     </div>
   </section>
 
-  <!-- FEATURED QUOTE -->
-  <div class="featured-quote-wrap">
-    <blockquote class="featured-quote reveal">
-      <p>עברתי חוויה עצומה. חוויה פנימית שאני מרגיש אותה עד היום.<br>יצאתי במפגש האחרון של הסדנא כשאני אוהב את עצמי.</p>
-      <div class="featured-quote-cta">
-        <a href="testimonials.html">להמלצות נוספות של משתתפים ←</a>
-      </div>
-    </blockquote>
-  </div>
+  <!-- CARDS OF LOVE PHOTO -->
+  <figure class="atmo-figure atmo-figure--cards reveal" style="padding: 0 24px;">
+    <img class="atmo-img" src="cards-of-love.jpg" alt="קלפי אהבה" loading="lazy" />
+  </figure>
 
   <!-- TOOLS (Methodology) -->
   <section class="tools">
