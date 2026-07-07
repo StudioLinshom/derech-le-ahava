@@ -204,14 +204,68 @@
     .title-mark--mustard { background: linear-gradient(transparent 60%, var(--mustard) 60%); display: inline-block; padding: 0 6px; }
     .title-mark--coral { background: linear-gradient(transparent 60%, var(--coral) 60%); display: inline-block; padding: 0 6px; }
 
-    .intro { background: var(--bg); }
-    .intro-text {
-      font-size: clamp(18px, 2vw, 21px);
-      color: var(--ink-soft); line-height: 1.85;
-      max-width: 680px; font-weight: 300;
-      text-align: center; margin-inline: auto;
+    .hero-intro {
+      max-width: 680px;
+      margin: 0 auto 60px;
+      text-align: center;
     }
-    .intro-text strong { color: var(--ink); font-weight: 500; }
+    .hero-intro p {
+      font-size: clamp(18px, 2vw, 21px);
+      color: rgba(247, 240, 225, 0.8);
+      line-height: 1.85;
+      font-weight: 300;
+      margin: 0 0 1em;
+    }
+    .hero-intro strong { color: var(--bg-card); font-weight: 500; }
+
+    /* ============ ATMOSPHERE IMAGES ============ */
+    .atmo-figure {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+    .atmo-img {
+      width: 100%;
+      border-radius: 16px;
+      border: 3px solid var(--ink);
+      box-shadow: 6px 6px 0 var(--ink);
+      object-fit: cover;
+      display: block;
+    }
+    .atmo-figure--hero {
+      max-width: 480px;
+      margin: 0 auto 50px;
+    }
+    .atmo-figure--hero .atmo-img {
+      transform: rotate(-2deg);
+      border-radius: 50%;
+      aspect-ratio: 1;
+      box-shadow: 8px 8px 0 var(--coral);
+    }
+    .atmo-figure--wide {
+      max-width: 780px;
+      padding: 0;
+      margin-top: 20px;
+      margin-bottom: 20px;
+    }
+    .atmo-figure--wide .atmo-img {
+      transform: rotate(-1deg);
+      max-height: 400px;
+    }
+    .atmo-figure--altar {
+      max-width: 600px;
+      margin-top: 20px;
+      margin-bottom: 20px;
+    }
+    .atmo-figure--altar .atmo-img {
+      transform: rotate(1.5deg);
+      max-height: 360px;
+      box-shadow: 6px 6px 0 var(--mustard);
+    }
+    @media (max-width: 600px) {
+      .atmo-figure--hero { max-width: 280px; }
+      .atmo-figure--wide .atmo-img, .atmo-figure--altar .atmo-img { max-height: 260px; }
+    }
 
     /* ============ LAYERS ============ */
     .layers { background: var(--bg); }
@@ -797,9 +851,24 @@
           <circle cx="100" cy="50" r="40" fill="var(--coral)" stroke="var(--ink)" stroke-width="2"/>
           <path d="M80,16 C60,16 55,84 80,84 C105,84 100,16 80,16 Z" fill="var(--mustard)"/>
         </svg>
-        <h2 class="hero-hook-big">רצית אהבה. פתחת את הלב. האמנת שהפעם הדרך תהיה אחרת.<br>אבל שוב עלו אותם הדפוסים...<br>הדרך לאהבה אינה מתחילה במפגש עם האדם האחר, היא מתחילה במפגש עם עצמך.</h2>
+        <h2 class="hero-hook-big">רצית אהבה. פתחת את הלב. האמנת שהפעם הדרך תהיה אחרת.<br>אבל שוב עלו אותם הדפוסים...<br><br>הדרך לאהבה אינה מתחילה במפגש עם האדם האחר, היא מתחילה במפגש עם עצמך.</h2>
       </div>
-      <!-- Screen 2: workshop details -->
+      <!-- Padit photo -->
+      <figure class="atmo-figure atmo-figure--hero reveal">
+        <img class="atmo-img" src="padit-action.jpg" alt="פדית ציבייר בסטודיו" loading="lazy" />
+      </figure>
+      <!-- Pain points -->
+      <div class="hero-intro reveal">
+        <p>
+          רבים ורבות רוצים/ות זוגיות, אך מוצאים/ות את עצמם/ן שוב ושוב נתקלים/ות
+          ב<strong>פחדים, דפוסים ישנים, מתח, אכזבות וחוסר בהירות</strong>.
+        </p>
+        <p>
+          בסדנה זו נלמד כיצד ליצור בתוכנו את התנאים שמאפשרים לקשר בריא להתפתח, באמצעות
+          <strong>שילוב ייחודי בין עבודה ישירה ועמוקה עם מערכת העצבים ומנגנוני ההגנה ההישרדותיים האוטומטיים של הגוף לבין עבודה תודעתית הדרגתית.</strong>
+        </p>
+      </div>
+      <!-- Workshop details -->
       <span class="eyebrow">סדנה בת 4 מפגשים</span>
       <h1>הדרך לאהבה</h1>
       <p class="hero-sub">מסע להכנת הקרקע שבתוכנו<br />לזוגיות מיטיבה, בריאה ומלאת חיים.</p>
@@ -808,21 +877,6 @@
         <span class="meta-pill"><span class="dot"></span><bdi dir="ltr">18:00–22:00</bdi></span>
         <span class="meta-pill"><span class="dot"></span>סביון</span>
       </div>
-    </div>
-  </section>
-
-  <!-- INTRO -->
-  <section class="intro">
-    <div class="container reveal">
-      <p class="intro-text">
-        רבים ורבות רוצים/ות זוגיות, אך מוצאים/ות את עצמם/ן שוב ושוב נתקלים/ות
-        ב<strong>פחדים, דפוסים ישנים, מתח, אכזבות וחוסר בהירות</strong>.
-      </p>
-      <p class="intro-text">
-        בסדנה זו נלמד כיצד ליצור בתוכנו את התנאים שמאפשרים לקשר בריא להתפתח, באמצעות
-        <strong>שילוב ייחודי בין עבודה ישירה ועמוקה עם מערכת העצבים ומנגנוני ההגנה ההישרדותיים האוטומטיים של הגוף לבין עבודה תודעתית הדרגתית.</strong>
-       
-      </p>
     </div>
   </section>
 
@@ -862,6 +916,11 @@
       </div>
     </div>
   </section>
+
+  <!-- ALTAR PHOTO -->
+  <figure class="atmo-figure atmo-figure--altar reveal" style="--rot: 1.5deg; padding: 0 24px;">
+    <img class="atmo-img" src="altar.jpg" alt="אלתר בסטודיו — פעמון טיבטי, נר וקלפים" loading="lazy" />
+  </figure>
 
   <!-- AUDIENCE -->
   <section class="audience">
@@ -905,6 +964,11 @@
       </p>
     </div>
   </section>
+
+  <!-- STUDIO PHOTO -->
+  <figure class="atmo-figure atmo-figure--wide reveal" style="--rot: -1deg; padding: 0 24px;">
+    <img class="atmo-img" src="studio.jpg" alt="הסטודיו מוכן לסדנה — כריות על רצפת עץ" loading="lazy" />
+  </figure>
 
   <!-- TECH SPECS -->
   <section class="specs">
