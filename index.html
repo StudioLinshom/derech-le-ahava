@@ -242,29 +242,39 @@
       aspect-ratio: 1;
       box-shadow: 8px 8px 0 var(--coral);
     }
+    .atmo-figure--portrait {
+      max-width: 360px;
+      margin: 40px auto;
+    }
+    .atmo-figure--portrait .atmo-img {
+      transform: rotate(-2deg);
+      box-shadow: 8px 8px 0 var(--coral);
+    }
     .atmo-figure--wide {
       max-width: 780px;
       padding: 0;
-      margin-top: 20px;
-      margin-bottom: 20px;
+      margin-top: 40px;
+      margin-bottom: 40px;
     }
     .atmo-figure--wide .atmo-img {
       transform: rotate(-1deg);
-      max-height: 400px;
+      max-height: 380px;
     }
     .atmo-figure--altar {
-      max-width: 600px;
-      margin-top: 20px;
-      margin-bottom: 20px;
+      max-width: 680px;
+      margin-top: 50px;
+      margin-bottom: 50px;
     }
     .atmo-figure--altar .atmo-img {
       transform: rotate(1.5deg);
-      max-height: 360px;
+      max-height: 420px;
       box-shadow: 6px 6px 0 var(--mustard);
     }
     @media (max-width: 600px) {
       .atmo-figure--hero { max-width: 280px; }
-      .atmo-figure--wide .atmo-img, .atmo-figure--altar .atmo-img { max-height: 260px; }
+      .atmo-figure--portrait { max-width: 260px; }
+      .atmo-figure--wide .atmo-img { max-height: 260px; }
+      .atmo-figure--altar .atmo-img { max-height: 280px; }
     }
 
     /* ============ LAYERS ============ */
@@ -855,7 +865,7 @@
       </div>
       <!-- Padit photo -->
       <figure class="atmo-figure atmo-figure--hero reveal">
-        <img class="atmo-img" src="padit-action.jpg" alt="פדית ציבייר בסטודיו" loading="lazy" />
+        <img class="atmo-img" src="cards-of-love.jpg" alt="קלפי אהבה" loading="lazy" />
       </figure>
       <!-- Pain points -->
       <div class="hero-intro reveal">
@@ -880,9 +890,9 @@
     </div>
   </section>
 
-  <!-- STUDIO PHOTO -->
-  <figure class="atmo-figure atmo-figure--wide reveal" style="--rot: -1deg; padding: 0 24px;">
-    <img class="atmo-img" src="studio.jpg" alt="הסטודיו מוכן לסדנה — כריות על רצפת עץ" loading="lazy" />
+  <!-- PADIT PORTRAIT -->
+  <figure class="atmo-figure atmo-figure--portrait reveal">
+    <img class="atmo-img" src="padit-action.jpg" alt="פדית ציבייר בסטודיו" loading="lazy" />
   </figure>
 
   <!-- LAYERS -->
@@ -921,6 +931,11 @@
       </div>
     </div>
   </section>
+
+  <!-- STUDIO PHOTO -->
+  <figure class="atmo-figure atmo-figure--wide reveal" style="padding: 0 24px;">
+    <img class="atmo-img" src="studio.jpg" alt="הסטודיו מוכן לסדנה — כריות על רצפת עץ" loading="lazy" />
+  </figure>
 
   <!-- AUDIENCE -->
   <section class="audience">
