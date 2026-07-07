@@ -355,9 +355,19 @@
     }
 
     const backFloat = document.querySelector('.back-float');
+    const backCta = document.querySelector('.back-cta');
     if (backFloat) {
-      const updateBackFloat = () => backFloat.classList.toggle('visible', window.scrollY > 100);
+      let ctaVisible = false;
+      const updateBackFloat = () => {
+        backFloat.classList.toggle('visible', window.scrollY > 100 && !ctaVisible);
+      };
       window.addEventListener('scroll', updateBackFloat, { passive: true });
+      if (backCta) {
+        new IntersectionObserver((entries) => {
+          ctaVisible = entries[0].isIntersecting;
+          updateBackFloat();
+        }, { threshold: 0.1 }).observe(backCta);
+      }
       updateBackFloat();
     }
   </script>
