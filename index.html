@@ -272,11 +272,22 @@
       box-shadow: 6px 6px 0 var(--mustard);
       border-radius: 16px;
     }
+    .atmo-figure--studio-small {
+      max-width: 440px;
+      margin: 30px auto;
+    }
+    .atmo-figure--studio-small .atmo-img {
+      transform: rotate(-1.2deg);
+      aspect-ratio: 1600 / 738;
+      box-shadow: 5px 5px 0 var(--navy);
+      border-radius: 14px;
+    }
     @media (max-width: 600px) {
       .atmo-figure--hero { max-width: 280px; }
       .atmo-figure--portrait { max-width: 260px; }
       .atmo-figure--wide .atmo-img { max-height: 260px; }
       .atmo-figure--cards { max-width: 260px; }
+      .atmo-figure--studio-small { max-width: 280px; }
     }
 
     /* ============ LAYERS ============ */
@@ -1044,6 +1055,11 @@
       </div>
     </div>
   </section>
+
+  <!-- STUDIO PHOTO (subtle bridge to pricing) -->
+  <figure class="atmo-figure atmo-figure--studio-small reveal" style="padding: 0 24px;">
+    <img class="atmo-img" src="studio.jpg" alt="הסטודיו בסביון" loading="lazy" />
+  </figure>
 
   <!-- PRICING -->
   <section class="pricing">
