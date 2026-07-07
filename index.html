@@ -360,6 +360,60 @@
     .audience-list li:nth-child(2n)::before { background: var(--mustard); }
     .audience-list li:nth-child(3n)::before { background: var(--navy); }
 
+    /* ============ FEATURED QUOTE ============ */
+    .featured-quote-wrap {
+      background: var(--bg);
+      padding: 40px 24px 60px;
+    }
+    .featured-quote {
+      position: relative;
+      max-width: 640px;
+      margin: 0 auto;
+      background: var(--bg-card);
+      border: 3px solid var(--ink);
+      border-radius: 24px;
+      box-shadow: 8px 8px 0 var(--coral);
+      padding: 48px 40px 36px;
+      transform: rotate(-1deg);
+    }
+    .featured-quote::before {
+      content: '\201D';
+      position: absolute;
+      top: -30px; inset-inline-end: 30px;
+      font-family: 'Frank Ruhl Libre', serif;
+      font-size: 120px; line-height: 1;
+      color: var(--coral);
+      background: var(--bg);
+      padding: 0 12px;
+    }
+    .featured-quote p {
+      font-family: 'Frank Ruhl Libre', serif;
+      font-size: clamp(20px, 2.6vw, 26px);
+      line-height: 1.55;
+      color: var(--ink);
+      font-weight: 700;
+      text-align: center;
+      margin: 0 0 20px;
+    }
+    .featured-quote-cta {
+      text-align: center;
+      margin-top: 20px;
+    }
+    .featured-quote-cta a {
+      display: inline-block;
+      font-size: 14px;
+      color: var(--navy-deep);
+      font-weight: 600;
+      border-bottom: 2px solid var(--mustard);
+      padding-bottom: 2px;
+      letter-spacing: 0.02em;
+    }
+    .featured-quote-cta a:hover { color: var(--coral); border-bottom-color: var(--coral); }
+    @media (max-width: 600px) {
+      .featured-quote { padding: 40px 24px 28px; }
+      .featured-quote::before { font-size: 90px; top: -22px; }
+    }
+
     /* ============ TOOLS (Methodology) ============ */
     .tools { background: var(--bg); }
 
@@ -897,7 +951,7 @@
           <circle cx="100" cy="50" r="40" fill="var(--coral)" stroke="var(--ink)" stroke-width="2"/>
           <path d="M80,16 C60,16 55,84 80,84 C105,84 100,16 80,16 Z" fill="var(--mustard)"/>
         </svg>
-        <h2 class="hero-hook-big">רצית אהבה. פתחת את הלב. האמנת שהפעם הדרך תהיה אחרת.<br>אבל שוב עלו אותם הדפוסים...<br><br>הדרך לאהבה אינה מתחילה במפגש עם האדם האחר, היא מתחילה במפגש עם עצמך.</h2>
+        <h2 class="hero-hook-big">רצית אהבה. פתחת את הלב. האמנת שהפעם הדרך תהיה אחרת.<br>אבל שוב משהו שם לא עובד...<br><br>הדרך לאהבה אינה מתחילה במפגש עם האדם האחר, היא מתחילה במפגש עם עצמך.</h2>
         <!-- Studio logo illustration -->
         <figure class="atmo-figure atmo-figure--logo reveal">
           <img src="studio-logo.png" alt="סטודיו לנשום" loading="lazy" />
@@ -986,6 +1040,16 @@
       </ul>
     </div>
   </section>
+
+  <!-- FEATURED QUOTE -->
+  <div class="featured-quote-wrap">
+    <blockquote class="featured-quote reveal">
+      <p>עברתי חוויה עצומה. חוויה פנימית שאני מרגיש אותה עד היום.<br>יצאתי במפגש האחרון של הסדנא כשאני אוהב את עצמי.</p>
+      <div class="featured-quote-cta">
+        <a href="testimonials.html">להמלצות נוספות של משתתפים ←</a>
+      </div>
+    </blockquote>
+  </div>
 
   <!-- TOOLS (Methodology) -->
   <section class="tools">
