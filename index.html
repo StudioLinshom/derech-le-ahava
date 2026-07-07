@@ -621,6 +621,30 @@
       .skills-list { text-align: start; max-width: 320px; margin-inline: auto; }
     }
 
+    .instructor-certs-toggle {
+      background: none; border: none; cursor: pointer;
+      font-family: inherit; font-size: 15px; font-weight: 600;
+      color: var(--coral-deep); padding: 0;
+      border-bottom: 2px solid var(--coral);
+      margin-top: 6px; display: inline-block;
+    }
+    .instructor-certs-toggle:hover { color: var(--navy); border-bottom-color: var(--navy); }
+    .instructor-certs-toggle::after { content: ' ▾'; font-size: 12px; }
+    .instructor-certs-toggle.open::after { content: ' ▴'; }
+    .instructor-certs-list {
+      list-style: none; padding: 0; margin: 14px 0 0;
+      display: none;
+    }
+    .instructor-certs-list.open { display: grid; gap: 4px; }
+    .instructor-certs-list li {
+      font-size: 14.5px; line-height: 1.65;
+      color: var(--ink-mute);
+      padding: 4px 0;
+      border-bottom: 1px solid var(--line);
+    }
+    .instructor-certs-list li:last-child { border-bottom: none; }
+    .instructor-academic { color: var(--ink-mute); font-size: 14.5px; line-height: 1.7; margin-top: 14px; }
+
     /* ============ CLOSING ============ */
     .closing {
       position: relative; overflow: hidden;
@@ -1012,20 +1036,31 @@
         </div>
         <div class="instructor-bio">
           <div class="instructor-name">פדית ציבייר</div>
-          <p>נשואה לאלון ואמא ליואב ומעיין.</p>
-          <p><strong>מלווה תהליכי התפתחות והחלמה</strong> מטראומה, דיכאון וחרדה. מורה ליוגה ומנחת קבוצות.</p>
-          <p>עובדת עם גישות גוף-רוח-נפש:</p>
-          <ul class="skills-list">
-            <li>FOBP — נשימה מעגלית משולבת פוקוסינג</li>
-            <li>SE — החוויה הסומאטית</li>
-            <li>מיינדפולנס</li>
-            <li>TRE — רעד ספונטני</li>
-            <li>EMDR</li>
-            <li>ריברסינג</li>
-            <li>קבלה</li>
+          <p>נשואה לאלון ואמא ליואב ומעיין. מיטיבת לכת בתחומי גוף-רוח-נפש.</p>
+          <p><strong>מלווה תהליכי התפתחות ותהליכי החלמה</strong> מטראומה, דיכאון וחרדה. מורה ליוגה.</p>
+          <p><strong>טכניקות טיפול</strong> - פסיכותרפיה מבוססת נשימה ופוקוסינג (FOBP), החוויה הסומאטית (SE), עבודה עם רעד ספונטני (TRE), מיינדפולנס, EMDR, ריברסינג ועוד. מלווה תהליכים אישיים וקבוצתיים.</p>
+          <p>מייסדת <strong>"סטודיו לנשום"</strong> - קליניקה פרטית בקרית אונו.</p>
+          <button class="instructor-certs-toggle" id="certsToggle" type="button">לימודים והסמכות</button>
+          <ul class="instructor-certs-list" id="certsList">
+            <li>תרגילי שחרור מתח וטראומה - TRE (אניה בלום, TRE ישראל)</li>
+            <li>חשיבה בקצה הידיעה - TAE (ברוך ברנר ודנה גניהר, מכון על שפת היש)</li>
+            <li>התרמיל הרגשי (ויויאן דיטמר)</li>
+            <li>אינטגרציה של שיטות בילטארליות: IEMT, EMDR, EMI (רונית חיימוב ודב מידן, המרכז ללימודי פסיכותרפיה אינטגרטיבית)</li>
+            <li>יחסי הקשרות (ד"ר נירית אברהם)</li>
+            <li>התאוריה הפולי-וגאלית (גבי מינצברג)</li>
+            <li>יחסי מטפל - מטופל (יעל שביט, בית ספר פשטות)</li>
+            <li>החוויה הסומאטית - SE (ג'ודיתה בן דוד, בית ספר פשטות)</li>
+            <li>פוקוסינג (חן עין הבר, בית ספר פשטות)</li>
+            <li>פסיכותרפיה מבוססת נשימה ופוקוסינג - F.O.B.P (יניב קקון וחן עין הבר, בית ספר פשטות)</li>
+            <li>נשימה הולוטרופית (יניב קקון, בית ספר פשטות)</li>
+            <li>מיינדפולנס ככלי טיפולי (ד"ר גליה תנאי, מרכז גוף-נפש רמת השרון)</li>
+            <li>מורה ליוגה אשטנגה (שתי הסמכות: הסמכה ראשונה אצל רינת ריינה, הסמכה שניה אצל שני שרון)</li>
+            <li>טיפול באמצעות ריברסינג ונשימה דינמית אינטגרטיבית (רישי וסוקי, המרכז לנשימה ומדיטציה ברמת אפעל)</li>
+            <li>הקשבה קוונטית (אור קורן)</li>
+            <li>מטפלת תטא הילינג (מגוון קורסים והסמכות אצל מגוון מורים: נירוואן הלב, יפעת קדם, חגית יהודה)</li>
+            <li>יהדות אוניברסאלית, קבלה והתמרה (יחיאל גריידי)</li>
           </ul>
-          <p>מלווה תהליכים אישיים וקבוצתיים. מייסדת <strong>"סטודיו לנשום"</strong> — קליניקה פרטית בקריית אונו.</p>
-          <p><a class="layer-link" style="color: var(--navy-deep); border-bottom-color: var(--coral);" href="padit.html">כרטיס ביקור</a></p>
+          <p class="instructor-academic">שני תארים אקדמאיים MBA + BA (בתחומי מנהל עסקים, כלכלה ומערכות מידע. לפני ההסבה לתחום הטיפולי עסקתי בתפקידים: כלכלנית, אנליסטית ומנהלת שכר והטבות).</p>
         </div>
       </div>
     </div>
@@ -1259,6 +1294,14 @@
 
     // First time a form field gets focus
     form.addEventListener('focusin', () => trackOnce('Form_Started'), { once: true });
+
+    // Certs toggle
+    const certsToggle = document.getElementById('certsToggle');
+    const certsList = document.getElementById('certsList');
+    certsToggle.addEventListener('click', () => {
+      certsToggle.classList.toggle('open');
+      certsList.classList.toggle('open');
+    });
   </script>
 </body>
 </html>
