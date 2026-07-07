@@ -240,7 +240,7 @@
     /* ============ FLOATING BACK BUTTON ============ */
     .back-float {
       position: fixed;
-      bottom: 80px;
+      bottom: 24px;
       inset-inline-end: 20px;
       z-index: 95;
       display: inline-flex; align-items: center; gap: 6px;
@@ -356,9 +356,9 @@
 
     const backFloat = document.querySelector('.back-float');
     if (backFloat) {
-      window.addEventListener('scroll', () => {
-        backFloat.classList.toggle('visible', window.scrollY > 100);
-      }, { passive: true });
+      const updateBackFloat = () => backFloat.classList.toggle('visible', window.scrollY > 100);
+      window.addEventListener('scroll', updateBackFloat, { passive: true });
+      updateBackFloat();
     }
   </script>
 </body>
