@@ -215,7 +215,8 @@
       opacity: 0.8;
       animation: bounce-arrow 2s infinite;
       transition: opacity 0.3s;
-      pointer-events: none;
+      pointer-events: auto;
+      cursor: pointer;
     }
     .scroll-arrow.hidden { opacity: 0; }
     @keyframes bounce-arrow {
@@ -235,6 +236,30 @@
       body { font-size: 16px; }
       .page-header { padding: 70px 0 120px; }
     }
+
+    /* ============ FLOATING BACK BUTTON ============ */
+    .back-float {
+      position: fixed;
+      bottom: 80px;
+      inset-inline-end: 20px;
+      z-index: 95;
+      display: inline-flex; align-items: center; gap: 6px;
+      padding: 12px 20px;
+      background: var(--navy); color: var(--bg-card);
+      border: 2px solid var(--ink); border-radius: 100px;
+      font-family: inherit; font-size: 15px; font-weight: 700;
+      box-shadow: 3px 3px 0 var(--ink);
+      text-decoration: none;
+      opacity: 0; pointer-events: none;
+      transition: opacity 0.3s, transform 0.3s;
+      transform: translateY(10px);
+    }
+    .back-float.visible {
+      opacity: 1; pointer-events: auto;
+      transform: translateY(0);
+    }
+    .back-float:hover { border-bottom: none; background: var(--navy-deep); }
+    .back-float::after { content: '←'; }
   </style>
 </head>
 <body>
@@ -317,11 +342,24 @@
         const nearBottom = window.innerHeight + window.scrollY >= document.body.scrollHeight - 100;
         scrollArrow.classList.toggle('hidden', nearBottom);
       }, { passive: true });
+      scrollArrow.addEventListener('click', () => {
+        window.scrollBy({ top: window.innerHeight, behavior: 'smooth' });
+      });
+    }
+
+    const backFloat = document.querySelector('.back-float');
+    if (backFloat) {
+      window.addEventListener('scroll', () => {
+        backFloat.classList.toggle('visible', window.scrollY > 100);
+      }, { passive: true });
     }
   </script>
 
   <div class="scroll-arrow" aria-hidden="true">
     <svg viewBox="0 0 24 24" width="28" height="28"><path d="M12 16l-6-6h12z" fill="currentColor"/></svg>
   </div>
+
+  <a class="back-float" href="index.html"
+     onclick="if(history.length>1){history.back();return false;}">חזרה לדף הסדנה </a>
 </body>
 </html>
