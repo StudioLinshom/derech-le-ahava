@@ -198,6 +198,31 @@
     footer a:hover { border-bottom-color: var(--mustard); }
     .footer-divider { width: 50px; height: 3px; background: var(--coral); margin: 20px auto; border-radius: 2px; }
 
+    /* ============ SCROLL ARROW ============ */
+    .scroll-arrow {
+      position: fixed;
+      bottom: 24px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 90;
+      color: var(--ink);
+      background: var(--bg-card);
+      border: 2px solid var(--ink);
+      border-radius: 50%;
+      width: 44px; height: 44px;
+      display: flex; align-items: center; justify-content: center;
+      box-shadow: 3px 3px 0 var(--ink);
+      opacity: 0.8;
+      animation: bounce-arrow 2s infinite;
+      transition: opacity 0.3s;
+      pointer-events: none;
+    }
+    .scroll-arrow.hidden { opacity: 0; }
+    @keyframes bounce-arrow {
+      0%, 100% { transform: translateX(-50%) translateY(0); }
+      50% { transform: translateX(-50%) translateY(6px); }
+    }
+
     /* ============ ANIMATIONS ============ */
     .reveal { opacity: 0; transform: translateY(20px) rotate(var(--rot, 0deg)); transition: opacity 0.7s ease, transform 0.7s ease; }
     .reveal.in { opacity: 1; transform: rotate(var(--rot, 0deg)); }
@@ -285,6 +310,18 @@
       }
     }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
     document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+    const scrollArrow = document.querySelector('.scroll-arrow');
+    if (scrollArrow) {
+      window.addEventListener('scroll', () => {
+        const nearBottom = window.innerHeight + window.scrollY >= document.body.scrollHeight - 100;
+        scrollArrow.classList.toggle('hidden', nearBottom);
+      }, { passive: true });
+    }
   </script>
+
+  <div class="scroll-arrow" aria-hidden="true">
+    <svg viewBox="0 0 24 24" width="28" height="28"><path d="M12 16l-6-6h12z" fill="currentColor"/></svg>
+  </div>
 </body>
 </html>
